@@ -30,7 +30,9 @@ import statistics
 import subprocess
 import time
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+
+BJ = timezone(timedelta(hours=8))  # 北京时间
 
 
 def load_cfg():
@@ -348,7 +350,7 @@ def main():
     last_commit = last_discover = time.time()
     polls = 0
     while time.time() < end and not _STOP:
-        ts = datetime.now(timezone.utc).isoformat()
+        ts = datetime.now(BJ).isoformat(timespec="seconds")  # 北京时间记录
         for e in tracked:
             try:
                 append_rows(csv_path(e), ts, fetch_agg(e), prev[e])
