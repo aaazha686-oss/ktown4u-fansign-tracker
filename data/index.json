@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-25T14:52:06+00:00",
+ "updatedAt": "2026-06-25T14:53:58+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -16,7 +16,8 @@
      "tracked": true,
      "hasSummary": false,
      "total": 6252,
-     "members": 7
+     "members": 7,
+     "autofound": true
     },
     {
      "eventNo": "44468447",
@@ -28,7 +29,8 @@
      "tracked": true,
      "hasSummary": false,
      "total": 1121,
-     "members": 2
+     "members": 2,
+     "autofound": true
     },
     {
      "eventNo": "44473183",
@@ -36,6 +38,7 @@
      "description": "Video Call Event",
      "start": "2026-06-25 20:00:00.0",
      "end": "2026-06-28 00:00:00.0",
+     "autofound": true,
      "status": "upcoming",
      "tracked": false,
      "hasSummary": false
