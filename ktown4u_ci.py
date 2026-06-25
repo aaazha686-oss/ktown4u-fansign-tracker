@@ -396,6 +396,11 @@ def main():
                 print(f"[{ts}] event {e}: {ex}")
         polls += 1
         if time.time() - last_commit >= COMMIT_EVERY:
+            try:
+                import musicndrama_ci
+                musicndrama_ci.main()   # 顺带抓 musicndrama(写自己的 CSV + mnd_index.json)
+            except Exception as e:
+                print("musicndrama 抓取出错:", e)
             build_index(_DISCOVERED, _TRACKED)  # 用最新 CSV 刷新索引里的总量(不发请求)
             commit_push()
             last_commit = time.time()

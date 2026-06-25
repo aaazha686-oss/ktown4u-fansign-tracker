@@ -82,6 +82,12 @@ function parseCSV(t){const L=t.trim().split(/\r?\n/);L.shift();const rows=[];for
 async function refresh(){
   try{ INDEX=JSON.parse(await txt('data/index.json')); }
   catch(e){ $('status').textContent='加载 index 失败:'+e.message; return; }
+  // 合并 musicndrama(独立的 mnd_index.json,替换占位的未接入块)
+  try{
+    const mnd=JSON.parse(await txt('data/mnd_index.json'));
+    if(mnd&&mnd.platform){ const i=INDEX.platforms.findIndex(p=>p.id==='musicndrama');
+      if(i>=0) INDEX.platforms[i]=mnd.platform; else INDEX.platforms.push(mnd.platform); }
+  }catch(e){}
   $('status').textContent='更新于 '+new Date().toLocaleTimeString();
   route();
 }
