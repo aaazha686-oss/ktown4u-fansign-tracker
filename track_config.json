@@ -1,7 +1,17 @@
 {
-  "shopNo": 164,
   "interval": 10,
   "runSeconds": 1500,
   "commitEvery": 60,
-  "events": [44469917]
+  "discoverEvery": 300,
+  "ktown4u": {
+    "shopNo": 164,
+    "autoTrackOpenFansign": true,
+    "extraEvents": []
+  },
+  "analysis": {
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "bigThreshold": 10
+  }
 }
