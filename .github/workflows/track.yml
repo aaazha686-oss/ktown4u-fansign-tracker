@@ -1,24 +1,25 @@
 name: ktown4u-track
 
-# 每 5 分钟跑一轮(GitHub 定时任务最细就是 5 分钟);也可在 Actions 页手动触发
+# 连续抓取:一个任务一直跑(每10秒抓),每 ~15 分钟由定时触发「取消并重启」一个
+# 新任务来接力(GitHub 不支持真·永久任务,这是最接近连续的免费做法)。
+# 也可在 Actions 页手动触发 workflow_dispatch。
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
-# 让 workflow 能把抓到的 CSV 提交回仓库
 permissions:
   contents: write
 
-# 同一时间只跑一个,避免两轮抢着 push
+# 关键:新任务一来就取消正在跑的旧任务,实现接力(空档约 30 秒)
 concurrency:
   group: ktown4u-track
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   track:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 25      # 比 15 分钟大,等下一轮定时来接力;万一定时延迟也不会过早结束
     steps:
       - uses: actions/checkout@v4
 
@@ -26,18 +27,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: 密集抓取一轮
-        run: python ktown4u_ci.py
-
-      - name: 提交数据
+      - name: 配置 git 身份
         run: |
           git config user.name "ktown4u-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/*.csv 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "本轮无新增数据"
-          else
-            git commit -m "track: $(date -u +%FT%TZ)"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
-            git push
-          fi
+
+      - name: 连续抓取(每10秒)
+        run: python ktown4u_ci.py

@@ -1,6 +1,7 @@
 {
   "shopNo": 164,
   "interval": 10,
-  "burstSeconds": 200,
+  "runSeconds": 1500,
+  "commitEvery": 60,
   "events": [44469917]
 }

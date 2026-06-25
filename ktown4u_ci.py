@@ -1,33 +1,39 @@
 #!/usr/bin/env python3
 """
-Ktown4u 云端抓取(GitHub Actions 用,自包含)
-============================================
-每次被 Actions 调起,就做一段「密集突发抓取」:在 burstSeconds 时间内每
-interval 秒抓一次各成员销量,把 (时间, 成员, 累计销量, 增量) 追加到
-data/track_<活动号>.csv。增量跨多次运行连续(读上次 CSV 的最后值续上)。
+Ktown4u 云端连续抓取(GitHub Actions,真·每10秒)
+================================================
+一个任务长时间运行,全程每 interval 秒抓一次各成员销量,每 commitEvery 秒把数据
+提交回仓库。靠 workflow 的「定时取消重启」接力,做到近似连续的 10 秒采样
+(只在每次重启时有约 30 秒空档,GitHub 的设计限制)。
 
-配置见 track_config.json:
-  { "shopNo":164, "interval":10, "burstSeconds":200, "events":[44469917] }
-
-为什么这样设计:GitHub 定时任务最细每 5 分钟一轮,所以每轮内部用 10 秒
-密抓 ~200 秒,轮与轮拼接 ≈ 准 10 秒的连续覆盖。
+数据:data/track_<活动号>.csv,字段 time, member, sales, delta(增量跨重启续接)。
+配置:track_config.json
+  { "shopNo":164, "interval":10, "runSeconds":1500, "commitEvery":60, "events":[44469917] }
 """
 import csv
 import json
 import os
 import re
+import signal
 import ssl
+import subprocess
 import time
 import urllib.request
 from datetime import datetime, timezone
 
-CFG = json.load(open("track_config.json", encoding="utf-8"))
+
+def load_cfg():
+    return json.load(open("track_config.json", encoding="utf-8"))
+
+
+CFG = load_cfg()
 SHOP = int(CFG.get("shopNo", 164))
 INTERVAL = int(os.environ.get("INTERVAL", CFG.get("interval", 10)))
-BURST = int(os.environ.get("BURST_SECONDS", CFG.get("burstSeconds", 200)))
-EVENTS = [str(e) for e in CFG.get("events", [])]
-GQL = "https://apis.ktown4u.com/vador/graphql?operationName=eventProductsV2"
+RUN_SECONDS = int(os.environ.get("RUN_SECONDS", CFG.get("runSeconds", 1500)))
+COMMIT_EVERY = int(os.environ.get("COMMIT_EVERY", CFG.get("commitEvery", 60)))
+NOCOMMIT = os.environ.get("NOCOMMIT") == "1"
 DATADIR = "data"
+GQL = "https://apis.ktown4u.com/vador/graphql?operationName=eventProductsV2"
 Q = ("query eventProductsV2($request: EventProductsRequest!){ "
      "eventProductsV2(request:$request){ groups{ groupName products{ name sales } } } }")
 
@@ -37,7 +43,18 @@ try:
     import certifi
     _CTX = ssl.create_default_context(cafile=certifi.where())
 except Exception:
-    pass  # GitHub runner 自带 CA,默认即可
+    pass
+
+_STOP = False
+
+
+def _sig(*_a):
+    global _STOP
+    _STOP = True
+
+
+signal.signal(signal.SIGTERM, _sig)
+signal.signal(signal.SIGINT, _sig)
 
 
 def member_of(name):
@@ -99,25 +116,48 @@ def append_rows(path, ts, agg, prev):
             prev[m] = v
 
 
-def main():
-    if not EVENTS:
-        print("track_config.json 的 events 为空,没什么可抓。")
+def commit_push():
+    if NOCOMMIT:
         return
-    prev = {e: last_sales(os.path.join(DATADIR, f"track_{e}.csv")) for e in EVENTS}
-    end = time.time() + BURST
+    subprocess.run(["git", "add", "data"], check=False)
+    if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode != 0:
+        msg = "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")
+        subprocess.run(["git", "commit", "-q", "-m", msg], check=False)
+        subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], check=False)
+        subprocess.run(["git", "push", "-q"], check=False)
+
+
+def main():
+    events = [str(e) for e in load_cfg().get("events", [])]
+    if not events:
+        print("track_config.json 的 events 为空。")
+        return
+    prev = {e: last_sales(os.path.join(DATADIR, f"track_{e}.csv")) for e in events}
+    end = time.time() + RUN_SECONDS
+    last_commit = time.time()
     polls = 0
-    while time.time() < end:
+    while time.time() < end and not _STOP:
         ts = datetime.now(timezone.utc).isoformat()
-        for e in EVENTS:
+        for e in events:
             try:
-                agg = fetch_agg(e)
-                append_rows(os.path.join(DATADIR, f"track_{e}.csv"), ts, agg, prev[e])
+                append_rows(os.path.join(DATADIR, f"track_{e}.csv"), ts, fetch_agg(e), prev[e])
             except Exception as ex:
                 print(f"[{ts}] event {e} error: {ex}")
         polls += 1
-        if time.time() < end:
+        if time.time() - last_commit >= COMMIT_EVERY:
+            commit_push()
+            last_commit = time.time()
+            # 提交时顺带 pull,能拿到你在网页上改过的 track_config.json
+            new_events = [str(e) for e in load_cfg().get("events", [])]
+            if new_events != events:
+                events = new_events
+                for e in events:
+                    prev.setdefault(e, last_sales(os.path.join(DATADIR, f"track_{e}.csv")))
+                print(f"配置更新,现在追踪:{events}")
+        if not _STOP:
             time.sleep(INTERVAL)
-    print(f"burst 完成:{polls} 轮,events={EVENTS}")
+    commit_push()
+    print(f"本段结束:{polls} 轮 (stop={_STOP})")
 
 
 if __name__ == "__main__":
