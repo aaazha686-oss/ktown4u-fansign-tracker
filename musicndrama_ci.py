@@ -39,8 +39,19 @@ except Exception:
     pass
 
 
+_HDRS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Referer": "https://www.musicndrama.com/",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "same-origin",
+}
+
+
 def _get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh) AppleWebKit/537.36"})
+    req = urllib.request.Request(url, headers=_HDRS)
     with urllib.request.urlopen(req, timeout=20, context=_CTX) as r:
         return r.read().decode("utf-8", "ignore")
 
@@ -101,6 +112,7 @@ def poll_event(ev, state):
             print(f"  mnd {idx} 抓取失败: {e}")
             continue
         if p["stock"] is None:
+            print(f"  mnd {idx}: 无 initProdStock(可能被拦) title='{p['title'][:40]}'")
             continue
         # 基准库存(首次见到的剩余),持久化;sold = 基准 − 当前
         bkey = str(idx)
