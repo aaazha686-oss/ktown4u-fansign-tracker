@@ -59,8 +59,14 @@ const $=id=>document.getElementById(id);
 let INDEX=null, timer=null;
 
 async function txt(path){
-  const url=`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${path}?_=${Date.now()}`;
-  const r=await fetch(url,{cache:'no-store'}); if(!r.ok) throw new Error(path+' '+r.status); return r.text();
+  // 优先同源(GitHub Pages,每次提交后~1分钟部署、认防缓存参数,平滑不憋数据);
+  // 失败再退回 raw(本地 file:// 打开时用)。
+  try{
+    const r=await fetch(`${path}?_=${Date.now()}`,{cache:'no-store'});
+    if(r.ok) return r.text();
+  }catch(e){}
+  const r2=await fetch(`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${path}?_=${Date.now()}`,{cache:'no-store'});
+  if(!r2.ok) throw new Error(path+' '+r2.status); return r2.text();
 }
 function tshort(iso){
   const d=new Date(iso);
