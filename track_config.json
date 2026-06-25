@@ -2,7 +2,7 @@
   "interval": 10,
   "runSeconds": 3000,
   "commitEvery": 60,
-  "discoverEvery": 300,
+  "discoverEvery": 60,
   "ktown4u": {
     "shopNo": 164,
     "autoTrackOpenFansign": true,
