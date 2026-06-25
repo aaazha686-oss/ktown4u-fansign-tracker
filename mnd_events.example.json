@@ -1,0 +1,13 @@
+[
+  {
+    "id": "mnd_nctwish_photo",
+    "name": "NCT WISH PHOTO EXHIBITION",
+    "products": [10693]
+  },
+  {
+    "id": "mnd_example_fansign",
+    "name": "示例:某签售(每个成员一个商品idx)",
+    "products": [13151, 13152, 13153, 13154],
+    "labels": { "13151": "可选:自定义成员名(不填则从标题自动解析)" }
+  }
+]

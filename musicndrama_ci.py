@@ -50,9 +50,19 @@ _HDRS = {
 }
 
 
+# 可选代理:设环境变量 MND_PROXY=http://user:pass@host:port(住宅代理时用)
+_PROXY = os.environ.get("MND_PROXY", "").strip()
+if _PROXY:
+    _OPENER = urllib.request.build_opener(
+        urllib.request.ProxyHandler({"http": _PROXY, "https": _PROXY}),
+        urllib.request.HTTPSHandler(context=_CTX))
+else:
+    _OPENER = urllib.request.build_opener(urllib.request.HTTPSHandler(context=_CTX))
+
+
 def _get(url):
     req = urllib.request.Request(url, headers=_HDRS)
-    with urllib.request.urlopen(req, timeout=20, context=_CTX) as r:
+    with _OPENER.open(req, timeout=20) as r:
         return r.read().decode("utf-8", "ignore")
 
 
@@ -147,12 +157,18 @@ def build_mnd_index(events_summary):
               ensure_ascii=False, indent=1)
 
 
+def load_events():
+    # VPS 工作机用 mnd_events.json(独立配置);云端无此文件 -> 读 track_config(空)
+    e = load_json("mnd_events.json", None)
+    if e is not None:
+        return e if isinstance(e, list) else e.get("events", [])
+    return load_json("track_config.json", {}).get("musicndrama", {}).get("events", [])
+
+
 def main():
-    cfg = load_json("track_config.json", {})
-    mnd = cfg.get("musicndrama", {})
-    events = mnd.get("events", [])
+    events = load_events()
     if not events:
-        print("musicndrama.events 为空")
+        print("musicndrama events 为空(云端默认不抓;VPS 请建 mnd_events.json)")
         return
     state = load_json(STATE, {})
     summary = []
