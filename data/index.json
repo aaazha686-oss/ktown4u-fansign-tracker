@@ -1,0 +1,57 @@
+{
+ "updatedAt": "2026-06-25T03:08:18+00:00",
+ "platforms": [
+  {
+   "id": "ktown4u",
+   "name": "Ktown4u",
+   "supported": true,
+   "events": [
+    {
+     "eventNo": "44469917",
+     "title": "IVE",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-06-22 12:00:00.0",
+     "end": "2026-06-26 00:00:00.0",
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 1444,
+     "members": 7
+    },
+    {
+     "eventNo": "44468447",
+     "title": "UAU",
+     "description": "FANSIGN EVENT  ",
+     "start": "2026-06-12 15:00:00.0",
+     "end": "2026-06-27 00:00:00.0",
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 972,
+     "members": 2
+    }
+   ]
+  },
+  {
+   "id": "soundwave",
+   "name": "Soundwave",
+   "supported": false,
+   "reason": "平台(Cafe24)不公开销量/应募数",
+   "events": []
+  },
+  {
+   "id": "yetimall",
+   "name": "Yetimall (yettie.kr)",
+   "supported": false,
+   "reason": "待接入(Next.js 站,需逆向接口)",
+   "events": []
+  },
+  {
+   "id": "makestar",
+   "name": "MakeStar",
+   "supported": false,
+   "reason": "is_display_stock=false,不公开销量",
+   "events": []
+  }
+ ]
+}
