@@ -1,0 +1,43 @@
+name: ktown4u-track
+
+# 每 5 分钟跑一轮(GitHub 定时任务最细就是 5 分钟);也可在 Actions 页手动触发
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+# 让 workflow 能把抓到的 CSV 提交回仓库
+permissions:
+  contents: write
+
+# 同一时间只跑一个,避免两轮抢着 push
+concurrency:
+  group: ktown4u-track
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 密集抓取一轮
+        run: python ktown4u_ci.py
+
+      - name: 提交数据
+        run: |
+          git config user.name "ktown4u-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.csv 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "本轮无新增数据"
+          else
+            git commit -m "track: $(date -u +%FT%TZ)"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            git push
+          fi
