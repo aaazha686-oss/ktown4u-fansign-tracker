@@ -43,11 +43,10 @@
     <div class="row">
       <span><label>中签名额 S</label><input id="slots" type="number" value="30" min="1"></span>
       <span><label>集中度 φ</label><input id="plo" type="number" value="0.55" step="0.05"> ~ <input id="phi" type="number" value="0.75" step="0.05"></span>
-      <span><label>大单阈值</label><input id="thr" type="number" value="10" min="1">本</span>
       <label><input type="checkbox" id="onlyChanges"> 仅看有交易单</label>
       <label><input type="checkbox" id="showAll"> 明细显示全部历史</label>
       <button id="refreshBtn">🔄 立即刷新</button>
-      <span class="muted">建议区间=φ·N/S(稳健) · 大单拆解用阈值区分主单/补单(实验)</span>
+      <span class="muted">建议下单区间 = φ·N/S(瞄准中签群中位偏上,保高入选率)</span>
     </div>
   </div>
 
@@ -75,7 +74,7 @@ function tshort(iso){
   return d.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
 }
 const dcell=d=> d==null?'<span class="muted">·</span>' : d>0?`<span class="up">+${d}</span>` : d<0?`<span style="color:#ff7a7a">${d}</span>`:'<span class="muted">+0</span>';
-const params=()=>({S:Math.max(1,+$('slots').value||1),plo:+$('plo').value||0.55,phi:+$('phi').value||0.75,thr:Math.max(1,+$('thr').value||10)});
+const params=()=>({S:Math.max(1,+$('slots').value||1),plo:+$('plo').value||0.55,phi:+$('phi').value||0.75});
 
 function parseCSV(t){const L=t.trim().split(/\r?\n/);L.shift();const rows=[];for(const ln of L){const c=ln.split(',');if(c.length<3)continue;rows.push({t:c[0],member:c[1],sales:+c[2],delta:c[3]===''?null:+c[3]});}return rows;}
 
@@ -114,18 +113,13 @@ function showHome(){
 async function showEvent(eno){
   const meta=findEvent(eno)||{eventNo:eno,title:'活动 '+eno,status:'?'};
   let rows=[]; try{ rows=parseCSV(await txt(`data/track_${eno}.csv`)); }catch(e){}
-  const {S,plo,phi,thr}=params();
+  const {S,plo,phi}=params();
   const byTime={}, byMember={};
   for(const r of rows){ (byTime[r.t]=byTime[r.t]||{})[r.member]=r; (byMember[r.member]=byMember[r.member]||[]).push(r); }
   const times=Object.keys(byTime), members=Object.keys(byMember);
   const lastRow=times.length?byTime[times[times.length-1]]:{};
   const order=members.slice().sort((a,b)=>(lastRow[b]?.sales||0)-(lastRow[a]?.sales||0));
   const minN=order.length?Math.min(...order.map(m=>lastRow[m]?.sales||0)):0;
-
-  // 大单拆解(实验):该成员所有 >=阈值 的正增量当主单
-  const decomp=m=>{ const big=byMember[m].map(r=>r.delta).filter(d=>d!=null&&d>=thr).sort((a,b)=>b-a);
-    if(!big.length) return {cnt:0}; const top=big.slice(0,S); const cut=big[Math.min(S,big.length)-1];
-    const med=top.slice().sort((a,b)=>a-b)[Math.floor((top.length-1)/2)]; return {cnt:big.length,cut,med}; };
 
   let html=`<button class="back" onclick="location.hash='#/'">← 返回全部活动</button>
     <div class="card"><div class="row" style="justify-content:space-between">
@@ -137,13 +131,12 @@ async function showEvent(eno){
 
   if(!rows.length){ html+='<div class="card muted">暂无数据(刚开始抓 或 活动已归档无销量)。</div>'; $('view').innerHTML=html; return; }
 
-  // 汇总 + 建议
-  html+='<div class="card"><b>各成员当前/最终销量 + 建议下单</b><table class="summary"><thead><tr><th>成员/类型</th><th>总盘 N</th><th>近增量</th><th>建议区间(φ·N/S)</th><th>大单拆解 cut/中位(实验)</th></tr></thead><tbody>';
-  for(const m of order){ const N=lastRow[m]?.sales||0, lo=Math.round(plo*N/S), hi=Math.round(phi*N/S), dc=decomp(m);
-    const rng=N<S?'人人能中(1本)':`<span class="rng">${lo} ~ ${hi}</span>`;
-    const dctxt=dc.cnt?`cut≈${dc.cut} / 中位≈${dc.med} (${dc.cnt}笔主单)`:'<span class="muted">主单不足</span>';
-    html+=`<tr><td class="${N===minN?'easy':''}">${m}</td><td>${N}</td><td>${dcell(lastRow[m]?.delta)}</td><td>${rng}</td><td class="muted">${dctxt}</td></tr>`; }
-  html+=`</tbody></table><div class="muted" style="margin-top:6px">建议区间瞄准中签群中位偏上(保高入选率);大单拆解把≥${thr}本的增量当“某账号主单”估门槛,&lt;${thr}本含补单/散买无法区分,仅参考。</div></div>`;
+  // 汇总 + 建议(只保留稳健的总盘法 φ·N/S)
+  html+='<div class="card"><b>各成员当前/最终销量 + 建议下单</b><table class="summary"><thead><tr><th>成员/类型</th><th>总盘 N</th><th>近增量</th><th>建议下单区间(φ·N/S)</th></tr></thead><tbody>';
+  for(const m of order){ const N=lastRow[m]?.sales||0, lo=Math.round(plo*N/S), hi=Math.round(phi*N/S);
+    const rng=N<S?'人人能中(1本)':`<span class="rng">${lo} ~ ${hi} 本</span>`;
+    html+=`<tr><td class="${N===minN?'easy':''}">${m}</td><td>${N}</td><td>${dcell(lastRow[m]?.delta)}</td><td>${rng}</td></tr>`; }
+  html+=`</tbody></table><div class="muted" style="margin-top:6px">建议区间 = φ·N/S,瞄准中签群中位偏上,保高入选率。<br>注:Ktown4u 销量计数器约 25-30 分钟才批量刷新一次,“增量”是这段时间多人订单的合计、非单笔,故无法按单笔/账号拆解估门槛;以总盘 N 为准。</div></div>`;
 
   // 明细筛选:① 仅看有交易单(只留增量≠0) ② 显示全部历史 ③ 默认=有变化的+最近300
   const onlyChanges=$('onlyChanges').checked, showAll=$('showAll').checked;
@@ -162,7 +155,7 @@ async function showEvent(eno){
 }
 function findEvent(eno){ if(!INDEX)return null; for(const p of INDEX.platforms){ for(const e of (p.events||[])){ if(e.eventNo===String(eno)){ return {...e,platform:p.name}; } } } return null; }
 
-['slots','plo','phi','thr'].forEach(id=>$(id).oninput=route);
+['slots','plo','phi'].forEach(id=>$(id).oninput=route);
 $('showAll').onchange=route; $('onlyChanges').onchange=route;
 $('refreshBtn').onclick=()=>{ const b=$('refreshBtn'); b.textContent='⏳ 刷新中…'; refresh().finally(()=>{ setTimeout(()=>b.textContent='🔄 立即刷新',300); }); };
 refresh(); timer=setInterval(refresh,20000);
