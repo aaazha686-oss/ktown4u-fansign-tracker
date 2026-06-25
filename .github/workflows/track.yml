@@ -35,4 +35,5 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
           REPO: ${{ github.repository }}
+          MND_PROXY: ${{ secrets.MND_PROXY }}
         run: python ktown4u_ci.py

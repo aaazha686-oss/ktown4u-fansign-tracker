@@ -15,7 +15,9 @@
     "bigThreshold": 10
   },
   "musicndrama": {
-    "_note": "云端(GitHub美国机房)被 musicndrama 封,events 留空;改用本地 musicndrama_local.py 跑(SG IP 可抓)",
-    "events": []
+    "_note": "云端经 MND_PROXY(日本ISP住宅代理)抓 musicndrama,绕开机房IP封锁",
+    "events": [
+      { "id": "mnd_nctwish_photo", "name": "NCT WISH PHOTO EXHIBITION", "products": [10693] }
+    ]
   }
 }
