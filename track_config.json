@@ -1,6 +1,6 @@
 {
   "interval": 10,
-  "runSeconds": 1500,
+  "runSeconds": 3000,
   "commitEvery": 60,
   "discoverEvery": 300,
   "ktown4u": {

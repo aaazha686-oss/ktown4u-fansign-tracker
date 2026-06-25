@@ -1,17 +1,16 @@
 name: ktown4u-track
 
-# 连续抓取:一个任务一直跑(每10秒抓),每 ~15 分钟由定时触发「取消并重启」一个
-# 新任务来接力(GitHub 不支持真·永久任务,这是最接近连续的免费做法)。
-# 也可在 Actions 页手动触发 workflow_dispatch。
+# 连续抓取:任务跑 ~50 分钟(每10秒抓),结束前用 PAT 自我触发下一个接力;
+# schedule 仅作兜底(GitHub 定时不可靠,所以主要靠自我接力)。也可手动 workflow_dispatch。
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# 关键:新任务一来就取消正在跑的旧任务,实现接力(空档约 30 秒)
+# 新任务一来就取消正在跑的旧任务(接力),空档约 30 秒
 concurrency:
   group: ktown4u-track
   cancel-in-progress: true
@@ -19,7 +18,7 @@ concurrency:
 jobs:
   track:
     runs-on: ubuntu-latest
-    timeout-minutes: 25      # 比 15 分钟大,等下一轮定时来接力;万一定时延迟也不会过早结束
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
 
@@ -32,5 +31,8 @@ jobs:
           git config user.name "ktown4u-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: 连续抓取(每10秒)
+      - name: 连续抓取(每10秒,结束前自我接力)
+        env:
+          PAT: ${{ secrets.PAT }}
+          REPO: ${{ github.repository }}
         run: python ktown4u_ci.py

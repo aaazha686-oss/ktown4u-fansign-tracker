@@ -300,6 +300,24 @@ def build_index(discovered, tracked):
 
 
 # ---------- git ----------
+def dispatch_next():
+    """任务正常结束前,用 PAT 触发下一个运行(GITHUB_TOKEN 触发的不算,故需 PAT)。"""
+    pat = os.environ.get("PAT", "")
+    repo = os.environ.get("REPO", "")
+    if not (pat and repo):
+        print("无 PAT,跳过自我接力(改靠 schedule 兜底)")
+        return
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/repos/{repo}/actions/workflows/track.yml/dispatches",
+            data=json.dumps({"ref": "main"}).encode(), method="POST",
+            headers={"Authorization": f"token {pat}", "Accept": "application/vnd.github+json"})
+        urllib.request.urlopen(req, timeout=20)
+        print("✅ 自我接力:已派发下一个运行")
+    except Exception as e:
+        print("自我接力失败:", e)
+
+
 def commit_push():
     if NOCOMMIT:
         return
@@ -372,6 +390,8 @@ def main():
         if not _STOP:
             time.sleep(INTERVAL)
     commit_push()
+    if not _STOP:           # 正常到点结束 -> 自我接力;被取消(_STOP)则由取消方接力,不重复
+        dispatch_next()
     print(f"本段结束:{polls} 轮 (stop={_STOP})")
 
 
