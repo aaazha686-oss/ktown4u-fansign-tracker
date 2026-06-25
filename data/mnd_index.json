@@ -1,18 +1,18 @@
 {
- "updatedAt": "2026-06-25T10:15:12+00:00",
+ "updatedAt": "2026-06-25T10:17:02+00:00",
  "platform": {
   "id": "musicndrama",
   "name": "musicndrama (뮤직앤드라마)",
   "supported": true,
   "events": [
    {
-    "eventNo": "mnd_nctwish_photo",
-    "title": "NCT WISH PHOTO EXHIBITION",
+    "eventNo": "mnd_yves_0705",
+    "title": "Yves (이브) 7/5 签售",
     "platform": "musicndrama",
     "status": "live",
     "tracked": true,
     "total": 0,
-    "members": 1,
+    "members": 3,
     "hasSummary": false
    }
   ]
