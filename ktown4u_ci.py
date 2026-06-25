@@ -108,6 +108,17 @@ def is_fansign(text):
     return any(x in s for x in FANSIGN_KW)
 
 
+def event_title(eno):
+    """取活动标题(用于把 extraEvents 等非签售活动也显示到门户)。"""
+    q = "query event($eventRequest: EventRequest!){ event(eventRequest:$eventRequest){ eventNo title storeName } }"
+    try:
+        d = _gql("event", q, {"eventRequest": {"eventNo": int(eno), "shopNo": SHOP}}, retries=4)
+        e = (d.get("data") or {}).get("event") or {}
+        return e.get("title") or e.get("storeName") or ("#" + str(eno))
+    except Exception:
+        return "#" + str(eno)
+
+
 def discover():
     """返回 Ktown4u 当前活动里的签售(含起止时间、是否在售)。"""
     try:
@@ -273,6 +284,10 @@ def build_index(discovered, tracked):
             ev["status"] = "live" if d["live"] else "ended"
         ev["tracked"] = eno in tracked
         by_no[eno] = ev
+    # 额外追踪的(extraEvents 等非签售)也加进索引,否则门户看不到
+    for eno in tracked:
+        if eno not in by_no:
+            by_no[eno] = {"eventNo": eno, "title": event_title(eno), "status": "live", "tracked": True}
     # 标记总结是否存在、最新总量
     for eno, ev in by_no.items():
         ev["hasSummary"] = os.path.exists(os.path.join(DATADIR, f"summary_{eno}.json"))
