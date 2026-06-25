@@ -3,12 +3,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ktown4u 签售实时销量 Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{--b:#e23b6b;--bg:#0f1115;--card:#171a21;--mut:#8a93a3;--line:#262b36;--up:#46d17f}
   *{box-sizing:border-box}
   body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:var(--bg);color:#e7ebf2}
-  .wrap{max-width:1000px;margin:0 auto;padding:18px}
+  .wrap{max-width:1100px;margin:0 auto;padding:18px}
   h1{font-size:20px;margin:4px 0}
   .sub{color:var(--mut);font-size:13px;margin-bottom:14px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:16px}
@@ -16,25 +15,31 @@
   label{color:var(--mut);font-size:13px;margin-right:5px}
   input{background:#0d1016;border:1px solid var(--line);color:#e7ebf2;border-radius:8px;padding:7px 9px;font-size:14px;width:80px}
   button{background:#222734;color:#cdd5e2;border:0;border-radius:8px;padding:8px 12px;font-size:13px;cursor:pointer}
-  table{width:100%;border-collapse:collapse;margin-top:8px}
-  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);font-size:14px}
+  table{border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);white-space:nowrap}
   th{color:var(--mut);font-weight:500}
+  .summary{width:100%}
   .rng{color:#ffd166;font-weight:700}.easy{color:var(--up)}.up{color:var(--up)}.muted{color:var(--mut);font-size:12px}
-  .evtitle{font-size:17px;font-weight:700}
-  canvas{margin-top:10px;max-height:300px}
+  .evtitle{font-size:17px;font-weight:700;margin-bottom:4px}
+  .seclabel{color:var(--mut);font-size:12px;margin:12px 0 4px}
+  .scroll{overflow:auto;max-height:460px;border:1px solid var(--line);border-radius:8px}
+  .scroll table{width:100%}
+  .scroll th{position:sticky;top:0;background:#1b1f27;z-index:1}
+  .tcol{position:sticky;left:0;background:var(--card);color:#cdd5e2}
   .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--up);margin-right:5px;animation:p 2s infinite}
   @keyframes p{50%{opacity:.3}}
   a{color:#8ab4ff}
 </style></head>
 <body><div class="wrap">
-  <h1>Ktown4u 签售 · 实时销量 Dashboard</h1>
-  <div class="sub"><span class="dot"></span><span id="status">加载中…</span> · 数据每分钟自动更新 · <a id="repo" href="#" target="_blank">仓库</a></div>
+  <h1>Ktown4u 签售 · 实时销量记录</h1>
+  <div class="sub"><span class="dot"></span><span id="status">加载中…</span> · 每分钟自动刷新 · <a id="repo" href="#" target="_blank">仓库</a></div>
 
   <div class="card">
     <div class="row">
       <span><label>中签名额 S</label><input id="slots" type="number" value="30" min="1"></span>
       <span><label>集中度 φ</label><input id="plo" type="number" value="0.55" step="0.05"> ~ <input id="phi" type="number" value="0.75" step="0.05"></span>
-      <span class="muted">建议下单区间 = φ·N/S(中位偏上,保高入选率)</span>
+      <span class="muted">建议区间 = φ·N/S</span>
+      <span><label>明细显示最近</label><input id="rowsN" type="number" value="300" min="20" style="width:70px">次</span>
       <button id="refresh">🔄 立即刷新</button>
       <label style="margin-left:auto"><input type="checkbox" id="auto" checked> 自动刷新</label>
     </div>
@@ -44,49 +49,36 @@
 </div>
 
 <script>
-// 仓库信息(部署时自动写好)
 const OWNER="aaazha686-oss", REPO="ktown4u-fansign-tracker", BRANCH="main";
 document.getElementById('repo').href=`https://github.com/${OWNER}/${REPO}`;
 const $=id=>document.getElementById(id);
-const charts={};
 let timer=null;
 
 async function txt(path){
-  // 优先 raw(更新快),cache-bust
   const url=`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${path}?_=${Date.now()}`;
   const r=await fetch(url,{cache:'no-store'}); if(!r.ok) throw new Error(path+' '+r.status); return r.text();
 }
 function parseCSV(t){
-  const lines=t.trim().split(/\r?\n/); lines.shift(); // 去表头
+  const lines=t.trim().split(/\r?\n/); lines.shift();
   const rows=[];
-  for(const ln of lines){
-    const c=ln.split(','); if(c.length<3) continue;
-    rows.push({t:c[0], member:c[1], sales:+c[2], delta:c[3]===''?null:+c[3]});
-  }
+  for(const ln of lines){ const c=ln.split(','); if(c.length<3) continue;
+    rows.push({t:c[0], member:c[1], sales:+c[2], delta:c[3]===''?null:+c[3]}); }
   return rows;
 }
-function memberOf(rows){ // {member:[{t,sales,delta}]}
-  const m={};
-  for(const r of rows){ (m[r.member]=m[r.member]||[]).push(r); }
-  return m;
-}
-function fmtTime(iso){ return iso.slice(11,19); }
+const tshort=iso=>iso.slice(5,19).replace('T',' ');
+function dcell(d){ if(d==null) return '<span class="muted">·</span>'; if(d>0) return `<span class="up">+${d}</span>`; if(d<0) return `<span style="color:#ff7a7a">${d}</span>`; return '<span class="muted">+0</span>'; }
 
 async function loadAll(){
   try{
     const cfg=JSON.parse(await txt('track_config.json'));
     const events=(cfg.events||[]).map(String);
-    $('status').textContent=`追踪 ${events.length} 个活动`;
-    const cont=$('events'); const seen=new Set();
+    const seen=new Set();
     for(const eno of events){
       seen.add(eno);
-      let rows;
-      try{ rows=parseCSV(await txt(`data/track_${eno}.csv`)); }
-      catch(e){ rows=[]; }
+      let rows; try{ rows=parseCSV(await txt(`data/track_${eno}.csv`)); }catch(e){ rows=[]; }
       renderEvent(eno, rows);
     }
-    // 移除配置里已删掉的
-    [...cont.children].forEach(el=>{ if(!seen.has(el.dataset.eno)) el.remove(); });
+    [...$('events').children].forEach(el=>{ if(!seen.has(el.dataset.eno)) el.remove(); });
     $('status').textContent=`追踪 ${events.length} 个活动 · 更新于 ${new Date().toLocaleTimeString()}`;
   }catch(e){ $('status').textContent='加载失败:'+e.message; }
 }
@@ -96,37 +88,43 @@ function renderEvent(eno, rows){
   if(!sec){
     sec=document.createElement('div'); sec.className='card'; sec.dataset.eno=eno;
     sec.innerHTML=`<div class="evtitle">活动 #${eno}</div>
-      <table><thead><tr><th>成员/类型</th><th>当前总盘 N</th><th>近一条增量</th><th>建议下单区间</th></tr></thead><tbody class="tb"></tbody></table>
-      <canvas></canvas>`;
+      <table class="summary"><thead><tr><th>成员/类型</th><th>当前总盘 N</th><th>近一条增量</th><th>建议下单区间</th></tr></thead><tbody class="sum"></tbody></table>
+      <div class="seclabel">📋 抓取明细(每次抓取时间 × 各成员 总量(增量),最新在上)</div>
+      <div class="scroll"><table class="detail"></table></div>`;
     $('events').appendChild(sec);
   }
-  if(!rows.length){ sec.querySelector('.tb').innerHTML='<tr><td colspan="4" class="muted">暂无数据(刚开始抓 或 活动已归档)</td></tr>'; return; }
-  const byM=memberOf(rows);
+  if(!rows.length){ sec.querySelector('.sum').innerHTML='<tr><td colspan="4" class="muted">暂无数据(刚开始抓 或 活动已归档)</td></tr>'; sec.querySelector('.detail').innerHTML=''; return; }
+
+  // 成员顺序(按出现顺序)
+  const members=[...new Set(rows.map(r=>r.member))];
+  // 透视:时间 -> {成员: row}
+  const byTime={};
+  for(const r of rows){ (byTime[r.t]=byTime[r.t]||{})[r.member]=r; }
+  const times=Object.keys(byTime);
+  const lastT=times[times.length-1], lastRow=byTime[lastT];
+
+  // 顶部汇总 + 建议区间
   const S=Math.max(1,+$('slots').value||1), plo=+$('plo').value||0.55, phi=+$('phi').value||0.75;
-  const entries=Object.entries(byM).sort((a,b)=>b[1][b[1].length-1].sales - a[1][a[1].length-1].sales);
-  const minN=Math.min(...entries.map(([,a])=>a[a.length-1].sales));
-  sec.querySelector('.tb').innerHTML=entries.map(([m,arr])=>{
-    const last=arr[arr.length-1], N=last.sales;
-    const lo=Math.round(plo*N/S), hi=Math.round(phi*N/S);
+  const order=members.slice().sort((a,b)=>(lastRow[b]?.sales||0)-(lastRow[a]?.sales||0));
+  const minN=Math.min(...order.map(m=>lastRow[m]?.sales||0));
+  sec.querySelector('.sum').innerHTML=order.map(m=>{
+    const N=lastRow[m]?.sales||0, lo=Math.round(plo*N/S), hi=Math.round(phi*N/S);
     const rng=N<S?'人人能中(买1本)':`<span class="rng">${lo} ~ ${hi} 本</span>`;
-    const d=last.delta, dtag=d==null?'·':(d>0?`<span class="up">+${d}</span>`:'+0');
-    return `<tr><td class="${N===minN?'easy':''}">${m}</td><td>${N}</td><td>${dtag}</td><td>${rng}</td></tr>`;
+    return `<tr><td class="${N===minN?'easy':''}">${m}</td><td>${N}</td><td>${dcell(lastRow[m]?.delta)}</td><td>${rng}</td></tr>`;
   }).join('');
-  // 图:每个成员一条销量曲线
-  const labels=[...new Set(rows.map(r=>fmtTime(r.t)))];
-  const palette=['#e23b6b','#46d17f','#ffd166','#8ab4ff','#c792ea','#ff9e64','#7fdbca','#f78c6c'];
-  const datasets=entries.map(([m,arr],i)=>({label:m,data:arr.map(r=>({x:fmtTime(r.t),y:r.sales})),
-    borderColor:palette[i%palette.length],backgroundColor:palette[i%palette.length],borderWidth:2,pointRadius:0,tension:.2}));
-  const cv=sec.querySelector('canvas');
-  if(charts[eno]){ charts[eno].data.labels=labels; charts[eno].data.datasets=datasets; charts[eno].update('none'); }
-  else charts[eno]=new Chart(cv,{type:'line',data:{labels,datasets},
-    options:{animation:false,interaction:{mode:'index',intersect:false},
-      scales:{x:{ticks:{color:'#8a93a3',maxTicksLimit:8},grid:{color:'#262b36'}},
-              y:{ticks:{color:'#8a93a3'},grid:{color:'#262b36'}}},
-      plugins:{legend:{labels:{color:'#cdd5e2',boxWidth:12}}}}});
+
+  // 明细表:时间 × 成员(总量 + 增量)
+  const lim=Math.max(20,+$('rowsN').value||300);
+  const show=times.slice(-lim).reverse();
+  const head='<thead><tr><th class="tcol">时间</th>'+order.map(m=>`<th>${m}</th>`).join('')+'</tr></thead>';
+  const body='<tbody>'+show.map(t=>{
+    const cells=order.map(m=>{ const r=byTime[t][m]; return r?`<td>${r.sales} <span style="font-size:12px">(${dcell(r.delta)})</span></td>`:'<td class="muted">—</td>'; }).join('');
+    return `<tr><td class="tcol">${tshort(t)}</td>${cells}</tr>`;
+  }).join('')+'</tbody>';
+  sec.querySelector('.detail').innerHTML=head+body;
 }
 
-['slots','plo','phi'].forEach(id=>$(id).oninput=loadAll);
+['slots','plo','phi','rowsN'].forEach(id=>$(id).oninput=loadAll);
 $('refresh').onclick=loadAll;
 $('auto').onchange=e=>{ if(e.target.checked){timer=setInterval(loadAll,60000);} else clearInterval(timer); };
 loadAll(); timer=setInterval(loadAll,60000);
