@@ -1,20 +1,11 @@
 {
- "updatedAt": "2026-06-25T08:43:52+00:00",
+ "updatedAt": "2026-06-25T09:11:22+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44114564",
-     "title": "KAI",
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 716,
-     "members": 2
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -24,7 +15,7 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 3023,
+     "total": 3628,
      "members": 7
     },
     {

@@ -1,0 +1,20 @@
+{
+ "updatedAt": "2026-06-25T09:11:22+00:00",
+ "platform": {
+  "id": "musicndrama",
+  "name": "musicndrama (뮤직앤드라마)",
+  "supported": true,
+  "events": [
+   {
+    "eventNo": "mnd_nctwish_photo",
+    "title": "NCT WISH PHOTO EXHIBITION",
+    "platform": "musicndrama",
+    "status": "live",
+    "tracked": true,
+    "total": 0,
+    "members": 0,
+    "hasSummary": false
+   }
+  ]
+ }
+}
