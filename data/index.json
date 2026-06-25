@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-25T11:01:20+00:00",
+ "updatedAt": "2026-06-25T11:02:30+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -29,6 +29,16 @@
      "hasSummary": false,
      "total": 1022,
      "members": 2
+    },
+    {
+     "eventNo": "44473183",
+     "title": "MEOVV",
+     "description": "Video Call Event",
+     "start": "2026-06-25 20:00:00.0",
+     "end": "2026-06-28 00:00:00.0",
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
