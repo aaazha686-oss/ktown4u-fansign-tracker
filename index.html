@@ -46,6 +46,7 @@
       <span><label>大单阈值</label><input id="thr" type="number" value="10" min="1">本</span>
       <label><input type="checkbox" id="onlyChanges"> 仅看有交易单</label>
       <label><input type="checkbox" id="showAll"> 明细显示全部历史</label>
+      <button id="refreshBtn">🔄 立即刷新</button>
       <span class="muted">建议区间=φ·N/S(稳健) · 大单拆解用阈值区分主单/补单(实验)</span>
     </div>
   </div>
@@ -163,6 +164,7 @@ function findEvent(eno){ if(!INDEX)return null; for(const p of INDEX.platforms){
 
 ['slots','plo','phi','thr'].forEach(id=>$(id).oninput=route);
 $('showAll').onchange=route; $('onlyChanges').onchange=route;
-refresh(); timer=setInterval(refresh,60000);
+$('refreshBtn').onclick=()=>{ const b=$('refreshBtn'); b.textContent='⏳ 刷新中…'; refresh().finally(()=>{ setTimeout(()=>b.textContent='🔄 立即刷新',300); }); };
+refresh(); timer=setInterval(refresh,20000);
 </script>
 </body></html>
