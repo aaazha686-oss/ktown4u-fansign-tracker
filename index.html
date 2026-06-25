@@ -44,6 +44,7 @@
       <span><label>中签名额 S</label><input id="slots" type="number" value="30" min="1"></span>
       <span><label>集中度 φ</label><input id="plo" type="number" value="0.55" step="0.05"> ~ <input id="phi" type="number" value="0.75" step="0.05"></span>
       <span><label>大单阈值</label><input id="thr" type="number" value="10" min="1">本</span>
+      <label><input type="checkbox" id="onlyChanges"> 仅看有交易单</label>
       <label><input type="checkbox" id="showAll"> 明细显示全部历史</label>
       <span class="muted">建议区间=φ·N/S(稳健) · 大单拆解用阈值区分主单/补单(实验)</span>
     </div>
@@ -137,23 +138,25 @@ async function showEvent(eno){
     html+=`<tr><td class="${N===minN?'easy':''}">${m}</td><td>${N}</td><td>${dcell(lastRow[m]?.delta)}</td><td>${rng}</td><td class="muted">${dctxt}</td></tr>`; }
   html+=`</tbody></table><div class="muted" style="margin-top:6px">建议区间瞄准中签群中位偏上(保高入选率);大单拆解把≥${thr}本的增量当“某账号主单”估门槛,&lt;${thr}本含补单/散买无法区分,仅参考。</div></div>`;
 
-  // 抓取明细:默认=所有“有增量变化”的 + 最近300条;勾“显示全部历史”=不过滤
-  const showAll=$('showAll').checked;
+  // 明细筛选:① 仅看有交易单(只留增量≠0) ② 显示全部历史 ③ 默认=有变化的+最近300
+  const onlyChanges=$('onlyChanges').checked, showAll=$('showAll').checked;
+  const hasTxn=t=>Object.values(byTime[t]).some(r=>r.delta!=null&&r.delta!==0);
   let showTimes;
-  if(showAll){ showTimes=times.slice(); }
-  else{ const recent=new Set(times.slice(-300));
-        showTimes=times.filter(t=>recent.has(t)||Object.values(byTime[t]).some(r=>r.delta!=null&&r.delta!==0)); }
+  if(onlyChanges){ showTimes=times.filter(hasTxn); }
+  else if(showAll){ showTimes=times.slice(); }
+  else{ const recent=new Set(times.slice(-300)); showTimes=times.filter(t=>recent.has(t)||hasTxn(t)); }
   const show=showTimes.reverse();
+  const modeText = onlyChanges?'(仅有交易单)' : showAll?'(全部历史)' : '= 有增量变化的 + 最近300条';
   html+='<div class="card"><b>📋 抓取明细(北京时间 × 各成员 总量(增量))</b><div class="scroll"><table><thead><tr><th class="tcol">时间(北京)</th>'
     +order.map(m=>`<th>${m}</th>`).join('')+'</tr></thead><tbody>'
     +show.map(t=>`<tr><td class="tcol">${tshort(t)}</td>`+order.map(m=>{const r=byTime[t][m];return r?`<td>${r.sales} <span style="font-size:12px">(${dcell(r.delta)})</span></td>`:'<td class="muted">—</td>';}).join('')+'</tr>').join('')
-    +`</tbody></table></div><div class="muted" style="margin-top:6px">显示 ${show.length} 条 ${showAll?'(全部历史)':'= 有增量变化的 + 最近300条;勾上方“显示全部历史”看全程'}。所有记录都完整存在仓库 CSV 里。</div></div>`;
+    +`</tbody></table></div><div class="muted" style="margin-top:6px">显示 ${show.length} 条 ${modeText}。所有记录都完整存在仓库 CSV 里。</div></div>`;
   $('view').innerHTML=html;
 }
 function findEvent(eno){ if(!INDEX)return null; for(const p of INDEX.platforms){ for(const e of (p.events||[])){ if(e.eventNo===String(eno)){ return {...e,platform:p.name}; } } } return null; }
 
 ['slots','plo','phi','thr'].forEach(id=>$(id).oninput=route);
-$('showAll').onchange=route;
+$('showAll').onchange=route; $('onlyChanges').onchange=route;
 refresh(); timer=setInterval(refresh,60000);
 </script>
 </body></html>
