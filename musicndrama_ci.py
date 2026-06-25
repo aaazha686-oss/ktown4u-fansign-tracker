@@ -167,6 +167,7 @@ def load_events():
 
 def main():
     events = load_events()
+    print(f"[mnd] 启动 events={len(events)} 代理={'已启用' if _PROXY else '未设置(将直连,大概率被封)'}")
     if not events:
         print("musicndrama events 为空(云端默认不抓;VPS 请建 mnd_events.json)")
         return
