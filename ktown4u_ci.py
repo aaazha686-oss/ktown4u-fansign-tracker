@@ -270,7 +270,12 @@ def build_index(discovered, tracked):
             for ev in p.get("events", []):
                 old_events[ev["eventNo"]] = ev
     now = datetime.now()
-    by_no = dict(old_events)
+    # 只保留:仍在追踪的 / 有总结的 / 已结束的真签售;其余(如取消追踪的非签售)清掉
+    def _keep(eno, ev):
+        return (eno in tracked or ev.get("hasSummary")
+                or os.path.exists(os.path.join(DATADIR, f"summary_{eno}.json"))
+                or ev.get("status") == "ended")
+    by_no = {eno: ev for eno, ev in old_events.items() if _keep(eno, ev)}
     for d in discovered:
         eno = d["eventNo"]
         ev = by_no.get(eno, {})
