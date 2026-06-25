@@ -74,6 +74,14 @@ function tshort(iso){
   if(isNaN(d)) return iso.slice(5,19).replace('T',' ');
   return d.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
 }
+// K4 活动日期是韩国时间(KST,+09:00),转成北京时间(+08:00)显示
+function bjTime(s){
+  if(!s) return '?';
+  const iso=s.trim().replace(' ','T').replace(/\.\d+$/,'')+'+09:00';
+  const d=new Date(iso);
+  if(isNaN(d)) return s.slice(0,16);
+  return d.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
+}
 const dcell=d=> d==null?'<span class="muted">·</span>' : d>0?`<span class="up">+${d}</span>` : d<0?`<span style="color:#ff7a7a">${d}</span>`:'<span class="muted">+0</span>';
 const params=()=>({S:Math.max(1,+$('slots').value||1),plo:+$('plo').value||0.55,phi:+$('phi').value||0.75,thr:Math.max(1,+$('thr').value||10)});
 
@@ -97,6 +105,15 @@ function route(){
 }
 window.addEventListener('hashchange',route);
 
+function evCard(p,e){
+  return `<div class="ev" onclick="location.hash='#/event/${e.eventNo}'">
+    <div class="row" style="justify-content:space-between"><span class="plat">${p.name} · #${e.eventNo}</span>
+      <span class="badge ${e.status}">${({live:'🟢进行中',ended:'已结束',upcoming:'未开始'})[e.status]||e.status}</span></div>
+    <div style="font-weight:700;margin:4px 0">${e.title||('活动 '+e.eventNo)}</div>
+    <div class="muted">🕒 ${bjTime(e.start)} → ${bjTime(e.end)} (北京)</div>
+    <div class="muted">总盘 ${e.total??'—'} · ${e.members??'?'} 个成员/类型 ${e.hasSummary?'· 📄有总结':''}</div>
+  </div>`;
+}
 function showHome(){
   if(!INDEX){ return; }
   let html='';
@@ -105,14 +122,13 @@ function showHome(){
     html+=`<h2>${p.name} ${p.supported?'':'<span class="badge ended">未接入</span>'}</h2>`;
     if(!p.supported){ html+=`<div class="card unsup muted">${p.reason||'暂不支持'}</div>`; continue; }
     if(!evs.length){ html+='<div class="card muted">暂无在售签售(或刚启动还没发现)</div>'; continue; }
-    html+='<div class="grid">'+evs.map(e=>`
-      <div class="ev" onclick="location.hash='#/event/${e.eventNo}'">
-        <div class="row" style="justify-content:space-between"><span class="plat">${p.name} · #${e.eventNo}</span>
-          <span class="badge ${e.status}">${({live:'🟢进行中',ended:'已结束',upcoming:'未开始'})[e.status]||e.status}</span></div>
-        <div style="font-weight:700;margin:4px 0">${e.title||('活动 '+e.eventNo)}</div>
-        <div class="muted">${(e.start||'').slice(0,10)} ~ ${(e.end||'').slice(0,10)}</div>
-        <div class="muted">总盘 ${e.total??'—'} · ${e.members??'?'} 个成员/类型 ${e.hasSummary?'· 📄有总结':''}</div>
-      </div>`).join('')+'</div>';
+    const active=evs.filter(e=>e.status!=='ended'), ended=evs.filter(e=>e.status==='ended');
+    if(active.length) html+='<div class="grid">'+active.map(e=>evCard(p,e)).join('')+'</div>';
+    else html+='<div class="muted" style="margin-bottom:8px">暂无进行中/未开始的活动</div>';
+    if(ended.length){
+      html+=`<div class="seclabel" style="margin-top:10px">📁 已结束活动(${ended.length})— 仍保留全部销量记录</div>`
+        +'<div class="grid">'+ended.map(e=>evCard(p,e)).join('')+'</div>';
+    }
   }
   $('view').innerHTML=html;
 }
@@ -132,8 +148,9 @@ async function showEvent(eno){
     <div class="card"><div class="row" style="justify-content:space-between">
       <div><span style="font-size:18px;font-weight:700">${meta.title||eno}</span>
         <span class="plat"> · ${meta.platform||'ktown4u'} · #${eno}</span></div>
-      <span class="badge ${meta.status}">${({live:'🟢进行中',ended:'已结束',upcoming:'未开始'})[meta.status]||meta.status}</span></div>`;
-  if(meta.status==='ended') html+='<div class="muted">活动已结束,下面是最终总结。</div>';
+      <span class="badge ${meta.status}">${({live:'🟢进行中',ended:'已结束',upcoming:'未开始'})[meta.status]||meta.status}</span></div>
+      <div class="muted" style="margin-top:4px">🕒 开始 ${bjTime(meta.start)} → 结束 ${bjTime(meta.end)}(北京时间)</div>`;
+  if(meta.status==='ended') html+='<div class="muted">活动已结束,以下是保留的全部销量记录。</div>';
   html+='</div>';
 
   if(!rows.length){ html+='<div class="card muted">暂无数据(刚开始抓 或 活动已归档无销量)。</div>'; $('view').innerHTML=html; return; }

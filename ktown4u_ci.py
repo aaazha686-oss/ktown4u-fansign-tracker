@@ -271,16 +271,17 @@ def build_index(discovered, tracked):
                 old_events[ev["eventNo"]] = ev
     now = datetime.now()
     # 只保留:仍在追踪的 / 有总结的 / 已结束的真签售;其余(如取消追踪的非签售)清掉
+    # 保留:自动发现过的(autofound,签售结束也永久留着)/ 在追踪的 / 有总结的。
+    # 只清掉:手动加过又删掉的非签售(没 autofound 标记)。
     def _keep(eno, ev):
-        return (eno in tracked or ev.get("hasSummary")
-                or os.path.exists(os.path.join(DATADIR, f"summary_{eno}.json"))
-                or ev.get("status") == "ended")
+        return (ev.get("autofound") or eno in tracked or ev.get("hasSummary")
+                or os.path.exists(os.path.join(DATADIR, f"summary_{eno}.json")))
     by_no = {eno: ev for eno, ev in old_events.items() if _keep(eno, ev)}
     for d in discovered:
         eno = d["eventNo"]
         ev = by_no.get(eno, {})
         ev.update({"eventNo": eno, "title": d["title"], "description": d["description"],
-                   "start": d["start"], "end": d["end"]})
+                   "start": d["start"], "end": d["end"], "autofound": True})
         # 状态
         try:
             ed = datetime.strptime(d["end"][:19], "%Y-%m-%d %H:%M:%S")
