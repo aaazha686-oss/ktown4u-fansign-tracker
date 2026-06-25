@@ -67,9 +67,12 @@ def _get(url):
 
 
 def mnd_label(title):
-    """从标题提取成员/版本短标签:取最后一个括号内容,否则取尾部。"""
-    title = (title or "").replace(" : 뮤직앤드라마", "").strip()
-    m = re.findall(r'[\(\[【]([^\(\)\[\]【】]{1,30})[\)\]】]', title)
+    """从标题提取标签:优先第一个方括号[...](类型/成员/日期),否则圆括号,否则尾部。"""
+    title = (title or "").replace(" : 뮤직앤드라마", "").replace(" : Music&Drama", "").strip()
+    m = re.search(r'\[([^\[\]]{2,40})\]', title)      # 第一个 [...] = 类型(대면/영통…)
+    if m:
+        return m.group(1).strip()
+    m = re.findall(r'\(([^\(\)]{1,30})\)', title)      # 否则最后一个 (...)
     if m:
         return m[-1].strip()
     return title[-28:]

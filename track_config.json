@@ -17,7 +17,7 @@
   "musicndrama": {
     "_note": "云端经 MND_PROXY(日本ISP住宅代理)抓 musicndrama,绕开机房IP封锁",
     "events": [
-      { "id": "mnd_nctwish_photo", "name": "NCT WISH PHOTO EXHIBITION", "products": [10693] }
+      { "id": "mnd_yves_0705", "name": "Yves (이브) 7/5 签售", "products": [13143, 13144, 13145] }
     ]
   }
 }
