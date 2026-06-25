@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-25T09:24:16+00:00",
+ "updatedAt": "2026-06-25T09:52:54+00:00",
  "platform": {
   "id": "musicndrama",
   "name": "musicndrama (뮤직앤드라마)",
@@ -12,7 +12,7 @@
     "status": "live",
     "tracked": true,
     "total": 0,
-    "members": 0,
+    "members": 1,
     "hasSummary": false
    }
   ]
