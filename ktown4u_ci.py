@@ -328,15 +328,20 @@ def dispatch_next():
     if not (pat and repo):
         print("无 PAT,跳过自我接力(改靠 schedule 兜底)")
         return
-    try:
-        req = urllib.request.Request(
-            f"https://api.github.com/repos/{repo}/actions/workflows/track.yml/dispatches",
-            data=json.dumps({"ref": "main"}).encode(), method="POST",
-            headers={"Authorization": f"token {pat}", "Accept": "application/vnd.github+json"})
-        urllib.request.urlopen(req, timeout=20)
-        print("✅ 自我接力:已派发下一个运行")
-    except Exception as e:
-        print("自我接力失败:", e)
+    # 重试多次:一次失败就断链会导致几小时空档,所以多试几次
+    for attempt in range(5):
+        try:
+            req = urllib.request.Request(
+                f"https://api.github.com/repos/{repo}/actions/workflows/track.yml/dispatches",
+                data=json.dumps({"ref": "main"}).encode(), method="POST",
+                headers={"Authorization": f"token {pat}", "Accept": "application/vnd.github+json"})
+            urllib.request.urlopen(req, timeout=20)
+            print("✅ 自我接力:已派发下一个运行")
+            return
+        except Exception as e:
+            print(f"自我接力失败(第{attempt+1}次):{e}")
+            time.sleep(5)
+    print("⚠️ 自我接力5次都失败,靠 schedule 兜底")
 
 
 def commit_push():

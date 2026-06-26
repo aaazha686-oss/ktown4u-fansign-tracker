@@ -4,7 +4,7 @@ name: ktown4u-track
 # schedule 仅作兜底(GitHub 定时不可靠,所以主要靠自我接力)。也可手动 workflow_dispatch。
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
