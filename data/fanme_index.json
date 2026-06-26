@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-26T07:52:09+00:00",
+ "updatedAt": "2026-06-26T07:53:21+00:00",
  "platform": {
   "id": "fanme",
   "name": "fanme (fanmeofficial)",
@@ -11,7 +11,7 @@
     "platform": "fanme",
     "status": "live",
     "tracked": true,
-    "total": 518,
+    "total": 520,
     "members": 11,
     "hasSummary": false
    }
