@@ -1,0 +1,143 @@
+{
+ "eventNo": "44469917",
+ "platform": "ktown4u",
+ "title": "IVE",
+ "end": "2026-06-26 00:00:00.0",
+ "computedAt": "2026-06-26T00:01:04+00:00",
+ "totalAllMembers": 6252,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 3441,
+   "recommend": {
+    "N": 3441,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 63,
+    "rangeHigh": 86
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 10,
+    "cutTopN": 97,
+    "medianTopN": 238.5
+   }
+  },
+  {
+   "member": "VideoCall·AN YUJIN",
+   "total": 821,
+   "recommend": {
+    "N": 821,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 15,
+    "rangeHigh": 21
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 5,
+    "cutTopN": 38,
+    "medianTopN": 92
+   }
+  },
+  {
+   "member": "VideoCall·LIZ",
+   "total": 610,
+   "recommend": {
+    "N": 610,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 11,
+    "rangeHigh": 15
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 7,
+    "cutTopN": 31,
+    "medianTopN": 70
+   }
+  },
+  {
+   "member": "VideoCall·JANG WONYOUNG",
+   "total": 599,
+   "recommend": {
+    "N": 599,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 11,
+    "rangeHigh": 15
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 5,
+    "cutTopN": 18,
+    "medianTopN": 102
+   }
+  },
+  {
+   "member": "VideoCall·LEESEO",
+   "total": 364,
+   "recommend": {
+    "N": 364,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 9
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 5,
+    "cutTopN": 30,
+    "medianTopN": 75
+   }
+  },
+  {
+   "member": "VideoCall·REI",
+   "total": 242,
+   "recommend": {
+    "N": 242,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 5,
+    "cutTopN": 12,
+    "medianTopN": 20
+   }
+  },
+  {
+   "member": "VideoCall·GAEUL",
+   "total": 175,
+   "recommend": {
+    "N": 175,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 4,
+    "cutTopN": 13,
+    "medianTopN": 30.0
+   }
+  }
+ ]
+}
