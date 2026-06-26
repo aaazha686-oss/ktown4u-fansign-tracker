@@ -1,0 +1,20 @@
+{
+ "updatedAt": "2026-06-26T04:39:54+00:00",
+ "platform": {
+  "id": "fanme",
+  "name": "fanme (fanmeofficial)",
+  "supported": true,
+  "events": [
+   {
+    "eventNo": "fanme_exo_reverxe_0717",
+    "title": "EXO REVERXE 应募 (7/17)",
+    "platform": "fanme",
+    "status": "live",
+    "tracked": true,
+    "total": 172,
+    "members": 11,
+    "hasSummary": false
+   }
+  ]
+ }
+}

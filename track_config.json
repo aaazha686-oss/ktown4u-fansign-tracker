@@ -17,7 +17,82 @@
   "musicndrama": {
     "_note": "云端经 MND_PROXY(日本ISP住宅代理)抓 musicndrama,绕开机房IP封锁",
     "events": [
-      { "id": "mnd_yves_0705", "name": "Yves (이브) 7/5 签售", "products": [13143, 13144, 13145] }
+      {
+        "id": "mnd_yves_0705",
+        "name": "Yves (이브) 7/5 签售",
+        "products": [
+          13143,
+          13144,
+          13145
+        ]
+      }
+    ]
+  },
+  "fanme": {
+    "_note": "fanme(Shopline)公开 check_stock 接口;每成员每类型独立商品=分成员 cut。云端若被封用 FANME_PROXY",
+    "events": [
+      {
+        "id": "fanme_exo_reverxe_0717",
+        "name": "EXO REVERXE 应募 (7/17)",
+        "merchant": "676a73a4b4857d0045b9424a",
+        "products": [
+          {
+            "productId": "6a3b8b206d20ed4c141f4c23",
+            "key": "6a3b8b20fa579d000c250f87",
+            "label": "SUHO 签售"
+          },
+          {
+            "productId": "6a3b8bafb4f9ce30d0cdd065",
+            "key": "6a3b8baf0cb74a001647e144",
+            "label": "CHANYEOL 签售"
+          },
+          {
+            "productId": "6a3b8cab269faa16cf52432d",
+            "key": "6a3b8caaeee2ce00096895bd",
+            "label": "KAI 签售"
+          },
+          {
+            "productId": "6a3b8c1591be7509f56cc86a",
+            "key": "6a3b8c1596b15c12d6703b96",
+            "label": "D.O. 签售"
+          },
+          {
+            "productId": "6a3b8cf59ff0231d3a3bd268",
+            "key": "6a3b8cf51e00370012fd6cc1",
+            "label": "SEHUN 签售"
+          },
+          {
+            "productId": "6a3b8daa7a77e50018c32ae9",
+            "key": "6a3b8da9f6c638001454e2a9",
+            "label": "SUHO 1v1合影"
+          },
+          {
+            "productId": "6a3b8e018e45fb47fab3810a",
+            "key": "6a3b8e01eee2ce000b6895db",
+            "label": "CHANYEOL 1v1合影"
+          },
+          {
+            "productId": "6a3b8e881d51c33385afb819",
+            "key": "6a3b8e881bbce6000c4a9f27",
+            "label": "KAI 1v1合影"
+          },
+          {
+            "productId": "6a3b8e40fe72c33730441064",
+            "key": "6a3b8e40b532be0012e1968a",
+            "label": "D.O. 1v1合影"
+          },
+          {
+            "productId": "6a3b8ec8149560369590466a",
+            "key": "6a3b8ec881ce550008f29e7f",
+            "label": "SEHUN 1v1合影"
+          },
+          {
+            "productId": "6a3b8f29a297fe5d79eb5ae9",
+            "key": "6a3b8f295aa72c000ccd5a70",
+            "label": "全员 5v1合影"
+          }
+        ]
+      }
     ]
   }
 }
