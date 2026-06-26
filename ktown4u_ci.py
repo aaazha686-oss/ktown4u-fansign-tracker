@@ -347,16 +347,26 @@ def dispatch_next():
     print("⚠️ 自我接力5次都失败,靠 schedule 兜底")
 
 
+def _git(args, timeout=60):
+    """跑 git 命令,带超时;超时/出错都不抛(避免卡死整个抓取进程)。"""
+    try:
+        return subprocess.run(["git", *args], check=False, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        print(f"git {args[0]} 超时{timeout}s,跳过本次")
+        return None
+
+
 def commit_push():
     if NOCOMMIT:
         return
     with _IO_LOCK:  # 防止 fanme 线程在 git rebase 重写工作区时写 CSV
-        subprocess.run(["git", "add", "data"], check=False)
-        if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode != 0:
-            subprocess.run(["git", "commit", "-q", "-m",
-                            "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], check=False)
-            subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], check=False)
-            subprocess.run(["git", "push", "-q"], check=False)
+        _git(["add", "data"], timeout=30)
+        chk = _git(["diff", "--cached", "--quiet"], timeout=30)
+        if chk is not None and chk.returncode != 0:
+            _git(["commit", "-q", "-m",
+                  "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], timeout=30)
+            _git(["pull", "--rebase", "--autostash", "-q"], timeout=90)
+            _git(["push", "-q"], timeout=90)
 
 
 _DISCOVERED = []
