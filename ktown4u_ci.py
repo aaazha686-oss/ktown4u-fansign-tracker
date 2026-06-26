@@ -28,6 +28,7 @@ import signal
 import ssl
 import statistics
 import subprocess
+import threading
 import time
 import urllib.request
 from datetime import datetime, timezone, timedelta
@@ -47,6 +48,7 @@ INTERVAL = int(os.environ.get("INTERVAL", CFG.get("interval", 10)))
 RUN_SECONDS = int(os.environ.get("RUN_SECONDS", CFG.get("runSeconds", 1500)))
 COMMIT_EVERY = int(os.environ.get("COMMIT_EVERY", CFG.get("commitEvery", 60)))
 DISCOVER_EVERY = int(os.environ.get("DISCOVER_EVERY", CFG.get("discoverEvery", 300)))
+FANME_EVERY = int(os.environ.get("FANME_EVERY", CFG.get("fanmeEvery", 10)))  # fanme 抓取间隔(秒)
 NOCOMMIT = os.environ.get("NOCOMMIT") == "1"
 DATADIR = "data"
 GQL = "https://apis.ktown4u.com/vador/graphql"
@@ -63,6 +65,7 @@ except Exception:
     pass
 
 _STOP = False
+_IO_LOCK = threading.Lock()  # 串行化 fanme 线程写文件 vs commit_push 的 git 重写工作区
 
 
 def _sig(*_a):
@@ -347,12 +350,13 @@ def dispatch_next():
 def commit_push():
     if NOCOMMIT:
         return
-    subprocess.run(["git", "add", "data"], check=False)
-    if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode != 0:
-        subprocess.run(["git", "commit", "-q", "-m",
-                        "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], check=False)
-        subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], check=False)
-        subprocess.run(["git", "push", "-q"], check=False)
+    with _IO_LOCK:  # 防止 fanme 线程在 git rebase 重写工作区时写 CSV
+        subprocess.run(["git", "add", "data"], check=False)
+        if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode != 0:
+            subprocess.run(["git", "commit", "-q", "-m",
+                            "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], check=False)
+            subprocess.run(["git", "pull", "--rebase", "--autostash", "-q"], check=False)
+            subprocess.run(["git", "push", "-q"], check=False)
 
 
 _DISCOVERED = []
@@ -386,6 +390,22 @@ def refresh_discovery_and_index():
     return sorted(tracked)
 
 
+def _fanme_thread():
+    """fanme 独立线程:每 FANME_EVERY 秒抓一次,不受 k4 的 CACHE_LOADING 阻塞。
+    k4 主循环一轮可能要 ~75s(3活动×最多25次缓存重试),所以 fanme 必须独立跑才能真10秒。"""
+    import fanme_ci
+    while not _STOP:
+        t0 = time.time()
+        try:
+            with _IO_LOCK:    # 与 commit_push 互斥,避免 git rebase 时写文件
+                fanme_ci.main()   # 11商品并发抓取(~1s),写 CSV + fanme_index.json
+        except Exception as e:
+            print("fanme 抓取出错:", e)
+        # 睡到下一个 FANME_EVERY 边界,期间可被 _STOP 打断
+        while not _STOP and time.time() - t0 < FANME_EVERY:
+            time.sleep(0.5)
+
+
 def main():
     tracked = refresh_discovery_and_index()
     print("本段追踪:", tracked)
@@ -393,6 +413,9 @@ def main():
     end = time.time() + RUN_SECONDS
     last_commit = last_discover = time.time()
     polls = 0
+    # fanme 用独立线程跑(真10秒),k4 在主循环跑(受API缓存影响~75秒)
+    ft = threading.Thread(target=_fanme_thread, daemon=True)
+    ft.start()
     while time.time() < end and not _STOP:
         ts = datetime.now(BJ).isoformat(timespec="seconds")  # 北京时间记录
         for e in tracked:
@@ -407,11 +430,6 @@ def main():
                 musicndrama_ci.main()   # 顺带抓 musicndrama(写自己的 CSV + mnd_index.json)
             except Exception as e:
                 print("musicndrama 抓取出错:", e)
-            try:
-                import fanme_ci
-                fanme_ci.main()   # 顺带抓 fanme(写自己的 CSV + fanme_index.json)
-            except Exception as e:
-                print("fanme 抓取出错:", e)
             build_index(_DISCOVERED, _TRACKED)  # 用最新 CSV 刷新索引里的总量(不发请求)
             commit_push()
             last_commit = time.time()

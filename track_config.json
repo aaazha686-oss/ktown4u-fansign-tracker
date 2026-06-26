@@ -3,6 +3,7 @@
   "runSeconds": 3000,
   "commitEvery": 60,
   "discoverEvery": 60,
+  "fanmeEvery": 10,
   "ktown4u": {
     "shopNo": 164,
     "autoTrackOpenFansign": true,

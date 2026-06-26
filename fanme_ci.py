@@ -17,6 +17,7 @@ import json
 import os
 import ssl
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 
 BJ = timezone(timedelta(hours=8))
@@ -84,12 +85,20 @@ def poll_event(ev, state):
     ts = datetime.now(BJ).isoformat(timespec="seconds")
     new = not os.path.exists(path) or os.path.getsize(path) == 0
     rows, total, members = [], 0, 0
-    for p in ev.get("products", []):
+    products = ev.get("products", [])
+
+    def _fetch(p):
         try:
-            left = check_stock(merchant, p["productId"], p["key"])
+            return p, check_stock(merchant, p["productId"], p["key"])
         except Exception as e:
             print(f"  fanme {p.get('label')} 抓取失败: {e}")
-            continue
+            return p, None
+
+    # 11个商品并发抓取(延迟从~4s降到<1s)
+    with ThreadPoolExecutor(max_workers=min(12, len(products) or 1)) as ex:
+        results = list(ex.map(_fetch, products))
+
+    for p, left in results:
         if left is None:
             continue
         # 上限cap:取 max(默认10000, 历史见过的最大剩余);已报名 = cap − 剩余
