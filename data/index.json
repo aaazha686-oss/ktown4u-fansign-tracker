@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-26T06:00:56+00:00",
+ "updatedAt": "2026-06-26T06:02:11+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -44,6 +44,17 @@
      "total": 6252,
      "members": 7,
      "autofound": true
+    },
+    {
+     "eventNo": "44471966",
+     "title": "Secret",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-06-26 15:00:00.0",
+     "end": "2026-06-29 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
