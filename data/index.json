@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-06-26T23:59:10+00:00",
+ "updatedAt": "2026-06-27T00:00:24+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44468447",
-     "title": "UAU",
-     "description": "FANSIGN EVENT  ",
-     "start": "2026-06-12 15:00:00.0",
-     "end": "2026-06-27 00:00:00.0",
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 1645,
-     "members": 2,
-     "autofound": true
-    },
     {
      "eventNo": "44473183",
      "title": "MEOVV",
@@ -56,6 +43,19 @@
      "hasSummary": true,
      "total": 6252,
      "members": 7,
+     "autofound": true
+    },
+    {
+     "eventNo": "44468447",
+     "title": "UAU",
+     "description": "FANSIGN EVENT  ",
+     "start": "2026-06-12 15:00:00.0",
+     "end": "2026-06-27 00:00:00.0",
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 1645,
+     "members": 2,
      "autofound": true
     }
    ]
