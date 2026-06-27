@@ -1,0 +1,53 @@
+{
+ "eventNo": "44468447",
+ "platform": "ktown4u",
+ "title": "UAU",
+ "end": "2026-06-27 00:00:00.0",
+ "computedAt": "2026-06-27T00:00:27+00:00",
+ "totalAllMembers": 1645,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 939,
+   "recommend": {
+    "N": 939,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 17,
+    "rangeHigh": 23
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 11,
+    "cutTopN": 15,
+    "medianTopN": 27
+   }
+  },
+  {
+   "member": "VideoCall·COMPACT Ver.",
+   "total": 706,
+   "recommend": {
+    "N": 706,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 13,
+    "rangeHigh": 18
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 6,
+    "cutTopN": 18,
+    "medianTopN": 25.5
+   }
+  }
+ ]
+}
