@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-06-27T23:59:31+00:00",
+ "updatedAt": "2026-06-28T00:00:42+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44473183",
-     "title": "MEOVV",
-     "description": "Video Call Event",
-     "start": "2026-06-25 20:00:00.0",
-     "end": "2026-06-28 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 416,
-     "members": 1
-    },
     {
      "eventNo": "44471966",
      "title": "Secret",
@@ -57,6 +44,19 @@
      "total": 1645,
      "members": 2,
      "autofound": true
+    },
+    {
+     "eventNo": "44473183",
+     "title": "MEOVV",
+     "description": "Video Call Event",
+     "start": "2026-06-25 20:00:00.0",
+     "end": "2026-06-28 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 416,
+     "members": 1
     }
    ]
   },
