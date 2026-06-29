@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-29T04:30:49+00:00",
+ "updatedAt": "2026-06-29T05:14:29+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -57,6 +57,17 @@
      "hasSummary": true,
      "total": 76,
      "members": 2
+    },
+    {
+     "eventNo": "44471243",
+     "title": "CHOI YOOJUNG",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-06-29 14:00:00.0",
+     "end": "2026-07-01 12:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     },
     {
      "eventNo": "44472029",
