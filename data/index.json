@@ -1,11 +1,24 @@
 {
- "updatedAt": "2026-06-29T12:00:48+00:00",
+ "updatedAt": "2026-06-29T12:02:00+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
+    {
+     "eventNo": "44472029",
+     "title": "izna",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-06-29 12:00:00.0",
+     "end": "2026-07-01 17:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 103,
+     "members": 4
+    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -64,17 +77,6 @@
      "description": "On / Off-line Sign Event",
      "start": "2026-06-29 14:00:00.0",
      "end": "2026-07-01 12:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
-    },
-    {
-     "eventNo": "44472029",
-     "title": "izna",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-06-29 12:00:00.0",
-     "end": "2026-07-01 17:00:00.0",
      "autofound": true,
      "status": "upcoming",
      "tracked": false,
