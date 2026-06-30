@@ -66,6 +66,8 @@ except Exception:
 
 _STOP = False
 _IO_LOCK = threading.Lock()  # 串行化 fanme 线程写文件 vs commit_push 的 git 重写工作区
+_LAST_PROGRESS = time.time()  # 主循环上次推进时间(看门狗用)
+WATCHDOG_SEC = 300            # 主循环超过这么久没进展 -> 判定卡死,强制接力+退出
 
 
 def _sig(*_a):
@@ -347,6 +349,21 @@ def dispatch_next():
     print("⚠️ 自我接力5次都失败,靠 schedule 兜底")
 
 
+def _watchdog():
+    """看门狗:主循环若超过 WATCHDOG_SEC 没推进(卡在某个网络调用/git),
+    就强制接力一个新任务并退出本进程,实现自愈(GitHub schedule 不可靠,不能只靠它)。"""
+    while not _STOP:
+        time.sleep(20)
+        stalled = time.time() - _LAST_PROGRESS
+        if stalled > WATCHDOG_SEC:
+            print(f"⚠️ 看门狗:主循环 {int(stalled)}s 无进展,判定卡死 -> 接力+强制退出")
+            try:
+                dispatch_next()
+            except Exception as e:
+                print("看门狗接力失败:", e)
+            os._exit(1)   # 硬退出,绕过卡死的线程
+
+
 def _git(args, timeout=60):
     """跑 git 命令,带超时;超时/出错都不抛(避免卡死整个抓取进程)。"""
     try:
@@ -365,8 +382,8 @@ def commit_push():
         if chk is not None and chk.returncode != 0:
             _git(["commit", "-q", "-m",
                   "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], timeout=30)
-            _git(["pull", "--rebase", "--autostash", "-q"], timeout=90)
-            _git(["push", "-q"], timeout=90)
+            _git(["pull", "--rebase", "--autostash", "-q"], timeout=60)
+            _git(["push", "-q"], timeout=60)
 
 
 _DISCOVERED = []
@@ -426,13 +443,17 @@ def main():
     # fanme 用独立线程跑(真10秒),k4 在主循环跑(受API缓存影响~75秒)
     ft = threading.Thread(target=_fanme_thread, daemon=True)
     ft.start()
+    threading.Thread(target=_watchdog, daemon=True).start()  # 卡死自愈
     while time.time() < end and not _STOP:
+        global _LAST_PROGRESS
+        _LAST_PROGRESS = time.time()   # 每轮开始打点,告诉看门狗主循环还活着
         ts = datetime.now(BJ).isoformat(timespec="seconds")  # 北京时间记录
         for e in tracked:
             try:
                 append_rows(csv_path(e), ts, fetch_agg(e), prev[e])
             except Exception as ex:
                 print(f"[{ts}] event {e}: {ex}")
+            _LAST_PROGRESS = time.time()   # 每个活动抓完也打点(k4 可能慢)
         polls += 1
         if time.time() - last_commit >= COMMIT_EVERY:
             try:
@@ -443,6 +464,7 @@ def main():
             build_index(_DISCOVERED, _TRACKED)  # 用最新 CSV 刷新索引里的总量(不发请求)
             commit_push()
             last_commit = time.time()
+            _LAST_PROGRESS = time.time()   # 提交后打点(commit/push 可能慢)
         if time.time() - last_discover >= DISCOVER_EVERY:
             new_tracked = refresh_discovery_and_index()
             for e in new_tracked:
