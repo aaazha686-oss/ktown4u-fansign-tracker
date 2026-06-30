@@ -124,6 +124,16 @@ def poll_event(ev, state):
             "hasSummary": False}
 
 
+def ended_entry(ev):
+    """已结束活动:不再发请求,直接用 CSV 里最后的销量构建索引条目(保留展示)。"""
+    eid = ev["id"]
+    prev = last_sales(os.path.join(DATADIR, f"track_{eid}.csv"))
+    return {"eventNo": eid, "title": ev.get("name", eid), "platform": "fanme",
+            "status": "ended", "tracked": False, "total": sum(prev.values()),
+            "members": len(prev), "hasSummary": False,
+            "end": ev.get("end", "")}
+
+
 def load_events():
     e = load_json("fanme_events.json", None)
     if e is not None:
@@ -137,7 +147,8 @@ def main():
     if not events:
         return
     state = load_json(STATE, {})
-    summary = [poll_event(ev, state) for ev in events]
+    # 已结束的活动跳过抓取、只保留展示;在售的正常抓
+    summary = [ended_entry(ev) if ev.get("ended") else poll_event(ev, state) for ev in events]
     json.dump(state, open(STATE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     idx = {"updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
            "platform": {"id": "fanme", "name": "fanme (fanmeofficial)",
