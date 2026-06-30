@@ -90,19 +90,37 @@ function parseCSV(t){const L=t.trim().split(/\r?\n/);L.shift();const rows=[];for
 async function refresh(){
   try{ INDEX=JSON.parse(await txt('data/index.json')); }
   catch(e){ $('status').textContent='加载 index 失败:'+e.message; return; }
+  // 各平台抓取器写入索引的时间 -> 用来判断数据是否新鲜(而不是用浏览器当前时间)
+  const stamps=[INDEX.updatedAt];
   // 合并 musicndrama(独立的 mnd_index.json,替换占位的未接入块)
   try{
     const mnd=JSON.parse(await txt('data/mnd_index.json'));
     if(mnd&&mnd.platform){ const i=INDEX.platforms.findIndex(p=>p.id==='musicndrama');
       if(i>=0) INDEX.platforms[i]=mnd.platform; else INDEX.platforms.push(mnd.platform); }
+    if(mnd&&mnd.updatedAt) stamps.push(mnd.updatedAt);
   }catch(e){}
   // 合并 fanme(独立的 fanme_index.json)
   try{
     const fm=JSON.parse(await txt('data/fanme_index.json'));
     if(fm&&fm.platform){ const i=INDEX.platforms.findIndex(p=>p.id==='fanme');
       if(i>=0) INDEX.platforms[i]=fm.platform; else INDEX.platforms.push(fm.platform); }
+    if(fm&&fm.updatedAt) stamps.push(fm.updatedAt);
   }catch(e){}
-  $('status').textContent='更新于 '+new Date().toLocaleTimeString();
+  // 显示真实"数据时间"(最新一个抓取器写入时间),并在断更时红色告警
+  const ms=stamps.filter(Boolean).map(s=>Date.parse(s)).filter(n=>!isNaN(n));
+  const last=ms.length?Math.max(...ms):0;
+  if(last){
+    const bj=new Date(last).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});
+    const ago=Math.round((Date.now()-last)/1000);
+    if(ago>300){
+      const mins=Math.floor(ago/60);
+      $('status').innerHTML='<span style="color:#ff5252;font-weight:700">⚠️ 数据已 '+mins+' 分钟未更新('+bj+')</span>';
+    }else{
+      $('status').textContent='数据更新于 '+bj+'(北京) · '+ago+'秒前';
+    }
+  }else{
+    $('status').textContent='更新于 '+new Date().toLocaleTimeString();
+  }
   route();
 }
 function route(){
