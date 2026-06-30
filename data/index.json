@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-06-30T15:00:00+00:00",
+ "updatedAt": "2026-06-30T15:01:19+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -31,6 +31,19 @@
      "hasSummary": false,
      "total": 204,
      "members": 4
+    },
+    {
+     "eventNo": "44476792",
+     "title": "USPEER",
+     "description": "On / Off-line Sign Event / Photo Event",
+     "start": "2026-06-30 15:00:00.0",
+     "end": "2026-07-03 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 46,
+     "members": 3
     },
     {
      "eventNo": "44469917",
@@ -83,17 +96,6 @@
      "hasSummary": true,
      "total": 76,
      "members": 2
-    },
-    {
-     "eventNo": "44476792",
-     "title": "USPEER",
-     "description": "On / Off-line Sign Event / Photo Event",
-     "start": "2026-06-30 15:00:00.0",
-     "end": "2026-07-03 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
