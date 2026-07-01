@@ -1,0 +1,53 @@
+{
+ "eventNo": "44471243",
+ "platform": "ktown4u",
+ "title": "CHOI YOOJUNG",
+ "end": "2026-07-01 12:00:00.0",
+ "computedAt": "2026-07-01T12:11:54+00:00",
+ "totalAllMembers": 349,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 201,
+   "recommend": {
+    "N": 201,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 5
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 6,
+    "cutTopN": 10,
+    "medianTopN": 13.0
+   }
+  },
+  {
+   "member": "VideoCall·?",
+   "total": 148,
+   "recommend": {
+    "N": 148,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 6,
+    "cutTopN": 11,
+    "medianTopN": 12.5
+   }
+  }
+ ]
+}

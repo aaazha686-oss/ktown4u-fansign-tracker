@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-07-01T11:21:32+00:00",
+ "updatedAt": "2026-07-01T12:13:07+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44471243",
-     "title": "CHOI YOOJUNG",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-06-29 14:00:00.0",
-     "end": "2026-07-01 12:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 349,
-     "members": 2
-    },
     {
      "eventNo": "44472029",
      "title": "izna",
@@ -95,6 +82,19 @@
      "tracked": true,
      "hasSummary": true,
      "total": 76,
+     "members": 2
+    },
+    {
+     "eventNo": "44471243",
+     "title": "CHOI YOOJUNG",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-06-29 14:00:00.0",
+     "end": "2026-07-01 12:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 349,
      "members": 2
     }
    ]
