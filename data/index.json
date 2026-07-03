@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-07-02T23:59:02+00:00",
+ "updatedAt": "2026-07-03T00:00:13+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44476792",
-     "title": "USPEER",
-     "description": "On / Off-line Sign Event / Photo Event",
-     "start": "2026-06-30 15:00:00.0",
-     "end": "2026-07-03 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 334,
-     "members": 3
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -96,6 +83,19 @@
      "hasSummary": true,
      "total": 571,
      "members": 4
+    },
+    {
+     "eventNo": "44476792",
+     "title": "USPEER",
+     "description": "On / Off-line Sign Event / Photo Event",
+     "start": "2026-06-30 15:00:00.0",
+     "end": "2026-07-03 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 334,
+     "members": 3
     }
    ]
   },
