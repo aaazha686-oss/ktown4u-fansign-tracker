@@ -1,0 +1,71 @@
+{
+ "eventNo": "44476792",
+ "platform": "ktown4u",
+ "title": "USPEER",
+ "end": "2026-07-03 00:00:00.0",
+ "computedAt": "2026-07-03T00:00:16+00:00",
+ "totalAllMembers": 334,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 187,
+   "recommend": {
+    "N": 187,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 5
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 6,
+    "cutTopN": 12,
+    "medianTopN": 16.0
+   }
+  },
+  {
+   "member": "[Photo Event] USPEER - 1",
+   "total": 75,
+   "recommend": {
+    "N": 75,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 2,
+    "cutTopN": 20,
+    "medianTopN": 29.0
+   }
+  },
+  {
+   "member": "VideoCall·Random Ver.",
+   "total": 72,
+   "recommend": {
+    "N": 72,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 14,
+    "medianTopN": 14
+   }
+  }
+ ]
+}
