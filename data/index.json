@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-16T01:46:25+00:00",
+ "updatedAt": "2026-07-16T02:38:44+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -96,6 +96,17 @@
      "hasSummary": true,
      "total": 334,
      "members": 3
+    },
+    {
+     "eventNo": "44484664",
+     "title": "AHOF",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-16 11:00:00.0",
+     "end": "2026-07-24 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
