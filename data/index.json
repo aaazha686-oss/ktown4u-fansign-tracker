@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-19T14:00:20+00:00",
+ "updatedAt": "2026-07-19T14:01:39+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -18,6 +18,19 @@
      "hasSummary": false,
      "total": 6610,
      "members": 6
+    },
+    {
+     "eventNo": "44483934",
+     "title": "CHOI YOOJUNG",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-19 14:00:00.0",
+     "end": "2026-07-21 12:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 22,
+     "members": 2
     },
     {
      "eventNo": "44484664",
@@ -122,17 +135,6 @@
      "hasSummary": true,
      "total": 334,
      "members": 3
-    },
-    {
-     "eventNo": "44483934",
-     "title": "CHOI YOOJUNG",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-19 14:00:00.0",
-     "end": "2026-07-21 12:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
