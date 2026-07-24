@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-07-24T11:59:21+00:00",
+ "updatedAt": "2026-07-24T12:00:33+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44484458",
-     "title": "JUNG DAE HYUN",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-22 14:00:00.0",
-     "end": "2026-07-24 12:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 162,
-     "members": 2
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -147,6 +134,19 @@
      "tracked": true,
      "hasSummary": true,
      "total": 1417,
+     "members": 2
+    },
+    {
+     "eventNo": "44484458",
+     "title": "JUNG DAE HYUN",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-22 14:00:00.0",
+     "end": "2026-07-24 12:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 162,
      "members": 2
     }
    ]
