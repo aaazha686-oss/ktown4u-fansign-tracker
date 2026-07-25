@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-25T09:01:03+00:00",
+ "updatedAt": "2026-07-25T09:01:07+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -148,6 +148,17 @@
      "hasSummary": true,
      "total": 162,
      "members": 2
+    },
+    {
+     "eventNo": "44488335",
+     "title": "NCT WISH ",
+     "description": "Video Call Event",
+     "start": "2026-07-25 18:00:00.0",
+     "end": "2026-07-28 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
