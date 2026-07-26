@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-26T14:16:35+00:00",
+ "updatedAt": "2026-07-26T15:08:41+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -16,8 +16,21 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 1248,
+     "total": 2168,
      "members": 6
+    },
+    {
+     "eventNo": "44488310",
+     "title": "FLARE U",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-26 15:00:00.0",
+     "end": "2026-07-29 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 125,
+     "members": 3
     },
     {
      "eventNo": "44469917",
@@ -161,17 +174,6 @@
      "hasSummary": true,
      "total": 162,
      "members": 2
-    },
-    {
-     "eventNo": "44488310",
-     "title": "FLARE U",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-26 15:00:00.0",
-     "end": "2026-07-29 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
