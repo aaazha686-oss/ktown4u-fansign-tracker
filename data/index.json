@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-27T14:00:08+00:00",
+ "updatedAt": "2026-07-27T14:01:26+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -31,6 +31,19 @@
      "hasSummary": false,
      "total": 192,
      "members": 3
+    },
+    {
+     "eventNo": "44488023",
+     "title": "이민혁 (HUTA)",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-27 14:00:00.0",
+     "end": "2026-07-30 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 122,
+     "members": 2
     },
     {
      "eventNo": "44469917",
@@ -174,17 +187,6 @@
      "hasSummary": true,
      "total": 162,
      "members": 2
-    },
-    {
-     "eventNo": "44488023",
-     "title": "이민혁 (HUTA)",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-27 14:00:00.0",
-     "end": "2026-07-30 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
