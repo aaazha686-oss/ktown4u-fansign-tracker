@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-07-27T23:59:19+00:00",
+ "updatedAt": "2026-07-28T00:00:36+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44488335",
-     "title": "NCT WISH ",
-     "description": "Video Call Event",
-     "start": "2026-07-25 18:00:00.0",
-     "end": "2026-07-28 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 10795,
-     "members": 6
-    },
     {
      "eventNo": "44488310",
      "title": "FLARE U",
@@ -187,6 +174,19 @@
      "hasSummary": true,
      "total": 162,
      "members": 2
+    },
+    {
+     "eventNo": "44488335",
+     "title": "NCT WISH ",
+     "description": "Video Call Event",
+     "start": "2026-07-25 18:00:00.0",
+     "end": "2026-07-28 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 10795,
+     "members": 6
     }
    ]
   },
