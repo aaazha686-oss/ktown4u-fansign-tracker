@@ -1,0 +1,125 @@
+{
+ "eventNo": "44488335",
+ "platform": "ktown4u",
+ "title": "NCT WISH ",
+ "end": "2026-07-28 00:00:00.0",
+ "computedAt": "2026-07-28T00:00:41+00:00",
+ "totalAllMembers": 10795,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "VideoCall·SION",
+   "total": 3413,
+   "recommend": {
+    "N": 3413,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 63,
+    "rangeHigh": 85
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 7,
+    "cutTopN": 179,
+    "medianTopN": 213
+   }
+  },
+  {
+   "member": "VideoCall·RIKU",
+   "total": 2195,
+   "recommend": {
+    "N": 2195,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 40,
+    "rangeHigh": 55
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 9,
+    "cutTopN": 12,
+    "medianTopN": 115
+   }
+  },
+  {
+   "member": "VideoCall·YUSHI",
+   "total": 1591,
+   "recommend": {
+    "N": 1591,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 29,
+    "rangeHigh": 40
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 10,
+    "cutTopN": 32,
+    "medianTopN": 138.0
+   }
+  },
+  {
+   "member": "VideoCall·JAEHEE",
+   "total": 1525,
+   "recommend": {
+    "N": 1525,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 28,
+    "rangeHigh": 38
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 12,
+    "cutTopN": 10,
+    "medianTopN": 61.0
+   }
+  },
+  {
+   "member": "VideoCall·SAKUYA",
+   "total": 1197,
+   "recommend": {
+    "N": 1197,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 22,
+    "rangeHigh": 30
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 10,
+    "cutTopN": 10,
+    "medianTopN": 87.5
+   }
+  },
+  {
+   "member": "VideoCall·RYO",
+   "total": 874,
+   "recommend": {
+    "N": 874,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 16,
+    "rangeHigh": 22
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 8,
+    "cutTopN": 48,
+    "medianTopN": 62.5
+   }
+  }
+ ]
+}
