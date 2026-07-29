@@ -1,0 +1,71 @@
+{
+ "eventNo": "44488310",
+ "platform": "ktown4u",
+ "title": "FLARE U",
+ "end": "2026-07-29 00:00:00.0",
+ "computedAt": "2026-07-29T00:01:12+00:00",
+ "totalAllMembers": 512,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 462,
+   "recommend": {
+    "N": 462,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 8,
+    "rangeHigh": 12
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 6,
+    "cutTopN": 22,
+    "medianTopN": 57.0
+   }
+  },
+  {
+   "member": "VideoCall·CHUEI LI YU",
+   "total": 39,
+   "recommend": {
+    "N": 39,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 1
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 24,
+    "medianTopN": 24
+   }
+  },
+  {
+   "member": "VideoCall·KANG WOO JIN",
+   "total": 11,
+   "recommend": {
+    "N": 11,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 11,
+    "medianTopN": 11
+   }
+  }
+ ]
+}
