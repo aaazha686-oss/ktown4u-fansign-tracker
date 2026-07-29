@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-07-28T23:59:51+00:00",
+ "updatedAt": "2026-07-29T00:01:08+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44488310",
-     "title": "FLARE U",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-26 15:00:00.0",
-     "end": "2026-07-29 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 512,
-     "members": 3
-    },
     {
      "eventNo": "44488023",
      "title": "LEE MINHYUK (HUTA)",
@@ -187,6 +174,19 @@
      "hasSummary": true,
      "total": 10795,
      "members": 6
+    },
+    {
+     "eventNo": "44488310",
+     "title": "FLARE U",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-26 15:00:00.0",
+     "end": "2026-07-29 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 512,
+     "members": 3
     }
    ]
   },
