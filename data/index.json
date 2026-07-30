@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-07-29T23:58:53+00:00",
+ "updatedAt": "2026-07-30T00:00:07+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44488023",
-     "title": "LEE MINHYUK (HUTA)",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-27 14:00:00.0",
-     "end": "2026-07-30 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 601,
-     "members": 2
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -187,6 +174,19 @@
      "hasSummary": true,
      "total": 512,
      "members": 3
+    },
+    {
+     "eventNo": "44488023",
+     "title": "LEE MINHYUK (HUTA)",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-27 14:00:00.0",
+     "end": "2026-07-30 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 601,
+     "members": 2
     }
    ]
   },
