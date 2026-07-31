@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-07-31T06:01:06+00:00",
+ "updatedAt": "2026-07-31T06:02:19+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -187,6 +187,17 @@
      "hasSummary": true,
      "total": 601,
      "members": 2
+    },
+    {
+     "eventNo": "44491557",
+     "title": "JEONG EUN JI",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-31 15:00:00.0",
+     "end": "2026-08-03 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
