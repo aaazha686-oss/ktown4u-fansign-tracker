@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-02T23:13:19+00:00",
+ "updatedAt": "2026-08-03T00:05:10+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44491557",
-     "title": "JEONG EUN JI",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-07-31 15:00:00.0",
-     "end": "2026-08-03 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 796,
-     "members": 2
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -199,6 +186,19 @@
      "tracked": true,
      "hasSummary": true,
      "total": 601,
+     "members": 2
+    },
+    {
+     "eventNo": "44491557",
+     "title": "JEONG EUN JI",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-07-31 15:00:00.0",
+     "end": "2026-08-03 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 796,
      "members": 2
     }
    ]
