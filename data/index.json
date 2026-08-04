@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-04T14:00:31+00:00",
+ "updatedAt": "2026-08-04T14:01:53+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -31,6 +31,19 @@
      "hasSummary": false,
      "total": 199,
      "members": 9
+    },
+    {
+     "eventNo": "44495898",
+     "title": "KISS OF LIFE",
+     "description": "대면 영상통화 사인회",
+     "start": "2026-08-04 14:00:00.0",
+     "end": "2026-08-07 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 64,
+     "members": 2
     },
     {
      "eventNo": "44469917",
@@ -226,17 +239,6 @@
      "hasSummary": true,
      "total": 796,
      "members": 2
-    },
-    {
-     "eventNo": "44495898",
-     "title": "KISS OF LIFE",
-     "description": "대면 영상통화 사인회",
-     "start": "2026-08-04 14:00:00.0",
-     "end": "2026-08-07 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
