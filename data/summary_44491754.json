@@ -1,0 +1,169 @@
+{
+ "eventNo": "44491754",
+ "platform": "ktown4u",
+ "title": "휘브",
+ "end": "2026-08-06 00:00:00.0",
+ "computedAt": "2026-08-06T00:00:40+00:00",
+ "totalAllMembers": 565,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 386,
+   "recommend": {
+    "N": 386,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 10
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 9,
+    "cutTopN": 28,
+    "medianTopN": 30
+   }
+  },
+  {
+   "member": "VideoCall·Random Ver.",
+   "total": 127,
+   "recommend": {
+    "N": 127,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 2,
+    "cutTopN": 40,
+    "medianTopN": 45.5
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (UGEON",
+   "total": 16,
+   "recommend": {
+    "N": 16,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 15,
+    "medianTopN": 15
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (HASEU",
+   "total": 15,
+   "recommend": {
+    "N": 15,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 15,
+    "medianTopN": 15
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (JAEHA",
+   "total": 8,
+   "recommend": {
+    "N": 8,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (LEEJE",
+   "total": 7,
+   "recommend": {
+    "N": 7,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (WONJU",
+   "total": 5,
+   "recommend": {
+    "N": 5,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (JINBE",
+   "total": 1,
+   "recommend": {
+    "N": 1,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[1:1 Photo Event] (KIM J",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
