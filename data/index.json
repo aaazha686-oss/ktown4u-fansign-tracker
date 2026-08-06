@@ -1,37 +1,11 @@
 {
- "updatedAt": "2026-08-05T23:08:43+00:00",
+ "updatedAt": "2026-08-06T00:00:36+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44491738",
-     "title": "NOWZ (나우즈)",
-     "description": "Offline Fansign Event",
-     "start": "2026-08-03 14:00:00.0",
-     "end": "2026-08-06 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 494,
-     "members": 1
-    },
-    {
-     "eventNo": "44491754",
-     "title": "휘브",
-     "description": "Photo Event & Sign Event",
-     "start": "2026-08-03 15:00:00.0",
-     "end": "2026-08-06 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 565,
-     "members": 9
-    },
     {
      "eventNo": "44495898",
      "title": "KISS OF LIFE",
@@ -239,6 +213,32 @@
      "hasSummary": true,
      "total": 796,
      "members": 2
+    },
+    {
+     "eventNo": "44491738",
+     "title": "NOWZ (나우즈)",
+     "description": "Offline Fansign Event",
+     "start": "2026-08-03 14:00:00.0",
+     "end": "2026-08-06 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 494,
+     "members": 1
+    },
+    {
+     "eventNo": "44491754",
+     "title": "휘브",
+     "description": "Photo Event & Sign Event",
+     "start": "2026-08-03 15:00:00.0",
+     "end": "2026-08-06 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 565,
+     "members": 9
     }
    ]
   },
