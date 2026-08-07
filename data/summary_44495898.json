@@ -1,0 +1,53 @@
+{
+ "eventNo": "44495898",
+ "platform": "ktown4u",
+ "title": "KISS OF LIFE",
+ "end": "2026-08-07 00:00:00.0",
+ "computedAt": "2026-08-07T00:05:24+00:00",
+ "totalAllMembers": 621,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "OffLine",
+   "total": 392,
+   "recommend": {
+    "N": 392,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 10
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 12,
+    "cutTopN": 12,
+    "medianTopN": 26.0
+   }
+  },
+  {
+   "member": "VideoCall·Random Ver.",
+   "total": 229,
+   "recommend": {
+    "N": 229,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 7,
+    "cutTopN": 16,
+    "medianTopN": 23
+   }
+  }
+ ]
+}

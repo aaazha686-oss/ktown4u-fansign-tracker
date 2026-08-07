@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-06T15:52:18+00:00",
+ "updatedAt": "2026-08-07T00:06:38+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44495898",
-     "title": "KISS OF LIFE",
-     "description": "대면 영상통화 사인회",
-     "start": "2026-08-04 14:00:00.0",
-     "end": "2026-08-07 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 621,
-     "members": 2
-    },
     {
      "eventNo": "44496530",
      "title": "FLARE U",
@@ -29,7 +16,7 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 55,
+     "total": 59,
      "members": 3
     },
     {
@@ -252,6 +239,19 @@
      "hasSummary": true,
      "total": 565,
      "members": 9
+    },
+    {
+     "eventNo": "44495898",
+     "title": "KISS OF LIFE",
+     "description": "대면 영상통화 사인회",
+     "start": "2026-08-04 14:00:00.0",
+     "end": "2026-08-07 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 621,
+     "members": 2
     }
    ]
   },
