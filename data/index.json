@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-09T05:00:35+00:00",
+ "updatedAt": "2026-08-09T05:01:48+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -265,6 +265,17 @@
      "hasSummary": true,
      "total": 444,
      "members": 3
+    },
+    {
+     "eventNo": "44497847",
+     "title": "AxMxP",
+     "description": "ON / Off-line Video Call",
+     "start": "2026-08-09 14:00:00.0",
+     "end": "2026-08-12 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
