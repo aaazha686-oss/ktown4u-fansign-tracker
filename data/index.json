@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-10T23:38:02+00:00",
+ "updatedAt": "2026-08-11T00:29:54+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44497296",
-     "title": "UAU",
-     "description": "Video Call Event",
-     "start": "2026-08-07 18:00:00.0",
-     "end": "2026-08-11 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 3229,
-     "members": 3
-    },
     {
      "eventNo": "44497847",
      "title": "AxMxP",
@@ -277,6 +264,19 @@
      "tracked": true,
      "hasSummary": true,
      "total": 444,
+     "members": 3
+    },
+    {
+     "eventNo": "44497296",
+     "title": "UAU",
+     "description": "Video Call Event",
+     "start": "2026-08-07 18:00:00.0",
+     "end": "2026-08-11 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 3229,
      "members": 3
     }
    ]

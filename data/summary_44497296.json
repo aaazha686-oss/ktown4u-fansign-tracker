@@ -1,0 +1,67 @@
+{
+ "eventNo": "44497296",
+ "platform": "ktown4u",
+ "title": "UAU",
+ "end": "2026-08-11 00:00:00.0",
+ "computedAt": "2026-08-11T00:28:43+00:00",
+ "totalAllMembers": 3229,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "UAU - 1st Mini Album [Pl",
+   "total": 2089,
+   "recommend": {
+    "N": 2089,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 38,
+    "rangeHigh": 52
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "UAU - 2nd Mini Album [Pl",
+   "total": 786,
+   "recommend": {
+    "N": 786,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 14,
+    "rangeHigh": 20
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·COMPACT Ver.",
+   "total": 354,
+   "recommend": {
+    "N": 354,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 6,
+    "rangeHigh": 9
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 11,
+    "cutTopN": 10,
+    "medianTopN": 15
+   }
+  }
+ ]
+}
