@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-12T18:01:08+00:00",
+ "updatedAt": "2026-08-12T18:02:21+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -31,6 +31,19 @@
      "hasSummary": false,
      "total": 1773,
      "members": 8
+    },
+    {
+     "eventNo": "44503045",
+     "title": "[Overseas Fan Signing Event in JAKARTA] U-KNOW - 1st Single [Time's Tickin']",
+     "description": "JAKARTA Offline Fansign Event",
+     "start": "2026-08-12 18:00:00.0",
+     "end": "2026-08-18 23:59:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 83767,
+     "members": 14
     },
     {
      "eventNo": "44469917",
@@ -304,17 +317,6 @@
      "hasSummary": true,
      "total": 1142,
      "members": 4
-    },
-    {
-     "eventNo": "44503045",
-     "title": "[Overseas Fan Signing Event in JAKARTA] U-KNOW - 1st Single [Time's Tickin']",
-     "description": "JAKARTA Offline Fansign Event",
-     "start": "2026-08-12 18:00:00.0",
-     "end": "2026-08-18 23:59:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
