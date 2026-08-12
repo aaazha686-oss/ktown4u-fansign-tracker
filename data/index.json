@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-12T00:47:36+00:00",
+ "updatedAt": "2026-08-12T00:48:49+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -16,8 +16,8 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 95947,
-     "members": 20
+     "total": 97907,
+     "members": 24
     },
     {
      "eventNo": "44469917",
