@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-13T23:59:39+00:00",
+ "updatedAt": "2026-08-14T00:01:51+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44502894",
-     "title": "WayV ",
-     "description": "SPECIAL PHOTO EVENT / Fansign Event",
-     "start": "2026-08-11 18:00:00.0",
-     "end": "2026-08-14 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 98703,
-     "members": 25
-    },
     {
      "eventNo": "44498215",
      "title": "CHOI YOOJUNG",
@@ -317,6 +304,19 @@
      "hasSummary": true,
      "total": 1142,
      "members": 4
+    },
+    {
+     "eventNo": "44502894",
+     "title": "WayV ",
+     "description": "SPECIAL PHOTO EVENT / Fansign Event",
+     "start": "2026-08-11 18:00:00.0",
+     "end": "2026-08-14 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 98703,
+     "members": 25
     }
    ]
   },

@@ -1,0 +1,423 @@
+{
+ "eventNo": "44502894",
+ "platform": "ktown4u",
+ "title": "WayV ",
+ "end": "2026-08-14 00:00:00.0",
+ "computedAt": "2026-08-14T00:00:34+00:00",
+ "totalAllMembers": 98703,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "NCT - [NCT 10TH ANNIVERS",
+   "total": 26499,
+   "recommend": {
+    "N": 26499,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 486,
+    "rangeHigh": 662
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - The 2nd Album [On",
+   "total": 16348,
+   "recommend": {
+    "N": 16348,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 300,
+    "rangeHigh": 409
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - RANDOM TRADING CA",
+   "total": 12544,
+   "recommend": {
+    "N": 12544,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 230,
+    "rangeHigh": 314
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 2,
+    "cutTopN": 11,
+    "medianTopN": 14.0
+   }
+  },
+  {
+   "member": "WayV - 5th Mini Album [G",
+   "total": 8461,
+   "recommend": {
+    "N": 8461,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 155,
+    "rangeHigh": 212
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - 6th Mini Album [F",
+   "total": 6718,
+   "recommend": {
+    "N": 6718,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 123,
+    "rangeHigh": 168
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - 2024 Season's Gre",
+   "total": 5727,
+   "recommend": {
+    "N": 5727,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 105,
+    "rangeHigh": 143
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - 7th Mini Album [B",
+   "total": 3855,
+   "recommend": {
+    "N": 3855,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 71,
+    "rangeHigh": 96
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - [2025 SM ARTIST S",
+   "total": 3651,
+   "recommend": {
+    "N": 3651,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 67,
+    "rangeHigh": 91
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - Winter Special Al",
+   "total": 3095,
+   "recommend": {
+    "N": 3095,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 57,
+    "rangeHigh": 77
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - POSTCARD + HOLOGR",
+   "total": 2928,
+   "recommend": {
+    "N": 2928,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 54,
+    "rangeHigh": 73
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - PHOTO PACK",
+   "total": 1769,
+   "recommend": {
+    "N": 1769,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 32,
+    "rangeHigh": 44
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - CLEAR PHOTO CARD",
+   "total": 1625,
+   "recommend": {
+    "N": 1625,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 30,
+    "rangeHigh": 41
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[UIQ] Biome Remedy™ Pore",
+   "total": 983,
+   "recommend": {
+    "N": 983,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 18,
+    "rangeHigh": 25
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - 8th Mini Album [V",
+   "total": 941,
+   "recommend": {
+    "N": 941,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 17,
+    "rangeHigh": 24
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[W.DRESSROOM] Perfumed H",
+   "total": 777,
+   "recommend": {
+    "N": 777,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 14,
+    "rangeHigh": 19
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - ID PHOTO KEY RING",
+   "total": 768,
+   "recommend": {
+    "N": 768,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 14,
+    "rangeHigh": 19
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 698,
+   "recommend": {
+    "N": 698,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 13,
+    "rangeHigh": 17
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 9,
+    "cutTopN": 11,
+    "medianTopN": 48
+   }
+  },
+  {
+   "member": "WayV - CCOMAZ VALENTINE'",
+   "total": 429,
+   "recommend": {
+    "N": 429,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 8,
+    "rangeHigh": 11
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - [Give Me That] PO",
+   "total": 364,
+   "recommend": {
+    "N": 364,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 9
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[AXIS-Y] Mugwort Pore Cl",
+   "total": 149,
+   "recommend": {
+    "N": 149,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - ['ON THE Way' FIN",
+   "total": 89,
+   "recommend": {
+    "N": 89,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[BBOM] BBOM TTEOKBOKKI C",
+   "total": 86,
+   "recommend": {
+    "N": 86,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "WayV - [Give Me That] A4",
+   "total": 83,
+   "recommend": {
+    "N": 83,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Purito Seoul] Mighty Ba",
+   "total": 71,
+   "recommend": {
+    "N": 71,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[SPECIAL PHOTO EVENT] Wa",
+   "total": 45,
+   "recommend": {
+    "N": 45,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 1
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 11,
+    "medianTopN": 11
+   }
+  }
+ ]
+}
