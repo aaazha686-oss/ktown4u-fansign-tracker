@@ -1,0 +1,147 @@
+{
+ "eventNo": "44498215",
+ "platform": "ktown4u",
+ "title": "CHOI YOOJUNG",
+ "end": "2026-08-14 12:00:00.0",
+ "computedAt": "2026-08-14T12:01:06+00:00",
+ "totalAllMembers": 1821,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "[UIQ] Biome Remedy™ Pore",
+   "total": 984,
+   "recommend": {
+    "N": 984,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 18,
+    "rangeHigh": 25
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[2CD SET] CHOI YOOJUNG -",
+   "total": 246,
+   "recommend": {
+    "N": 246,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 5,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "CHOI YOOJUNG - 1st Singl",
+   "total": 168,
+   "recommend": {
+    "N": 168,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[AXIS-Y] Mugwort Pore Cl",
+   "total": 149,
+   "recommend": {
+    "N": 149,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Wati For Skin] Tea Tree",
+   "total": 131,
+   "recommend": {
+    "N": 131,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[BENTON] GUAVA MOISTURE ",
+   "total": 95,
+   "recommend": {
+    "N": 95,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 38,
+   "recommend": {
+    "N": 38,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 1
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 1,
+    "cutTopN": 12,
+    "medianTopN": 12
+   }
+  },
+  {
+   "member": "VideoCall·?",
+   "total": 10,
+   "recommend": {
+    "N": 10,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
