@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-18T23:58:43+00:00",
+ "updatedAt": "2026-08-19T00:00:34+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44503045",
-     "title": "U-KNOW",
-     "description": "JAKARTA Offline Fansign Event",
-     "start": "2026-08-12 18:00:00.0",
-     "end": "2026-08-18 23:59:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 83973,
-     "members": 14
-    },
     {
      "eventNo": "44504275",
      "title": "ONEUS",
@@ -330,6 +317,19 @@
      "hasSummary": true,
      "total": 1821,
      "members": 8
+    },
+    {
+     "eventNo": "44503045",
+     "title": "U-KNOW",
+     "description": "JAKARTA Offline Fansign Event",
+     "start": "2026-08-12 18:00:00.0",
+     "end": "2026-08-18 23:59:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 83973,
+     "members": 14
     }
    ]
   },

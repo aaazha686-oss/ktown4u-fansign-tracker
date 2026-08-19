@@ -1,0 +1,243 @@
+{
+ "eventNo": "44503045",
+ "platform": "ktown4u",
+ "title": "U-KNOW",
+ "end": "2026-08-18 23:59:00.0",
+ "computedAt": "2026-08-18T23:59:20+00:00",
+ "totalAllMembers": 83973,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "U-KNOW - The 3rd Mini Al",
+   "total": 51120,
+   "recommend": {
+    "N": 51120,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 937,
+    "rangeHigh": 1278
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "U-KNOW - 1st Album [I-KN",
+   "total": 22510,
+   "recommend": {
+    "N": 22510,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 413,
+    "rangeHigh": 563
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "U-KNOW - 1st Single Albu",
+   "total": 3091,
+   "recommend": {
+    "N": 3091,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 57,
+    "rangeHigh": 77
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "TVXQ! - RANDOM TRADING C",
+   "total": 1761,
+   "recommend": {
+    "N": 1761,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 32,
+    "rangeHigh": 44
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[UIQ] Biome Remedy™ Pore",
+   "total": 1012,
+   "recommend": {
+    "N": 1012,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 19,
+    "rangeHigh": 25
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "TVXQ! - ID PHOTO KEY RIN",
+   "total": 875,
+   "recommend": {
+    "N": 875,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 16,
+    "rangeHigh": 22
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "U-KNOW - [2026 [U-KNOW P",
+   "total": 872,
+   "recommend": {
+    "N": 872,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 16,
+    "rangeHigh": 22
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "TVXQ! - [2025 SM ARTIST ",
+   "total": 862,
+   "recommend": {
+    "N": 862,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 16,
+    "rangeHigh": 22
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "TVXQ! - CLEAR PHOTO CARD",
+   "total": 785,
+   "recommend": {
+    "N": 785,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 14,
+    "rangeHigh": 20
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "TVXQ! - PHOTO PACK",
+   "total": 594,
+   "recommend": {
+    "N": 594,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 11,
+    "rangeHigh": 15
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Overseas Fan Signing Ev",
+   "total": 172,
+   "recommend": {
+    "N": 172,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 4,
+    "cutTopN": 10,
+    "medianTopN": 12.5
+   }
+  },
+  {
+   "member": "[Wati For Skin] Tea Tree",
+   "total": 131,
+   "recommend": {
+    "N": 131,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[BENTON] GUAVA MOISTURE ",
+   "total": 98,
+   "recommend": {
+    "N": 98,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[BBOM] BBOM TTEOKBOKKI C",
+   "total": 90,
+   "recommend": {
+    "N": 90,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
