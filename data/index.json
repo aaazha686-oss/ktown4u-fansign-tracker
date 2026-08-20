@@ -1,11 +1,24 @@
 {
- "updatedAt": "2026-08-20T15:01:18+00:00",
+ "updatedAt": "2026-08-20T15:02:43+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
+    {
+     "eventNo": "44506548",
+     "title": "SF9",
+     "description": "On / Off-line Video Call",
+     "start": "2026-08-20 15:00:00.0",
+     "end": "2026-08-23 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 29352,
+     "members": 24
+    },
     {
      "eventNo": "44504275",
      "title": "ONEUS",
@@ -330,17 +343,6 @@
      "hasSummary": true,
      "total": 83973,
      "members": 14
-    },
-    {
-     "eventNo": "44506548",
-     "title": "SF9",
-     "description": "On / Off-line Video Call",
-     "start": "2026-08-20 15:00:00.0",
-     "end": "2026-08-23 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
