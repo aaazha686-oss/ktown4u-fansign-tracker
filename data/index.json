@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-20T05:57:12+00:00",
+ "updatedAt": "2026-08-20T06:49:55+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -16,7 +16,7 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 13480,
+     "total": 13487,
      "members": 18
     },
     {
@@ -330,6 +330,17 @@
      "hasSummary": true,
      "total": 83973,
      "members": 14
+    },
+    {
+     "eventNo": "44506548",
+     "title": "SF9",
+     "description": "On / Off-line Video Call",
+     "start": "2026-08-20 15:00:00.0",
+     "end": "2026-08-23 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
