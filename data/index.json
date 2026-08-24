@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-24T17:33:53+00:00",
+ "updatedAt": "2026-08-24T18:07:31+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -18,6 +18,19 @@
      "hasSummary": false,
      "total": 14134,
      "members": 18
+    },
+    {
+     "eventNo": "44509589",
+     "title": "MINHO",
+     "description": "SPECIAL PHOTO EVENT& SIGN EVENT",
+     "start": "2026-08-24 18:00:00.0",
+     "end": "2026-08-26 18:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 17938,
+     "members": 14
     },
     {
      "eventNo": "44469917",
@@ -343,17 +356,6 @@
      "hasSummary": true,
      "total": 30250,
      "members": 24
-    },
-    {
-     "eventNo": "44509589",
-     "title": "MINHO",
-     "description": "SPECIAL PHOTO EVENT& SIGN EVENT",
-     "start": "2026-08-24 18:00:00.0",
-     "end": "2026-08-26 18:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
