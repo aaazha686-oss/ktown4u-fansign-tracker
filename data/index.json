@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-25T05:48:25+00:00",
+ "updatedAt": "2026-08-25T06:40:33+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -16,7 +16,7 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 14318,
+     "total": 14357,
      "members": 18
     },
     {
@@ -29,7 +29,7 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 18019,
+     "total": 18026,
      "members": 14
     },
     {
