@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-25T23:50:52+00:00",
+ "updatedAt": "2026-08-26T00:43:07+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44504275",
-     "title": "ONEUS",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-08-18 11:00:00.0",
-     "end": "2026-08-26 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 15079,
-     "members": 18
-    },
     {
      "eventNo": "44509589",
      "title": "MINHO",
@@ -29,7 +16,7 @@
      "status": "live",
      "tracked": true,
      "hasSummary": false,
-     "total": 18285,
+     "total": 18300,
      "members": 14
     },
     {
@@ -356,6 +343,19 @@
      "hasSummary": true,
      "total": 30250,
      "members": 24
+    },
+    {
+     "eventNo": "44504275",
+     "title": "ONEUS",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-08-18 11:00:00.0",
+     "end": "2026-08-26 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 15079,
+     "members": 18
     }
    ]
   },

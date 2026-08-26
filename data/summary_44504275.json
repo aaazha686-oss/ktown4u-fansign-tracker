@@ -1,0 +1,317 @@
+{
+ "eventNo": "44504275",
+ "platform": "ktown4u",
+ "title": "ONEUS",
+ "end": "2026-08-26 00:00:00.0",
+ "computedAt": "2026-08-26T00:41:58+00:00",
+ "totalAllMembers": 15079,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "ONEUS - Mini Album Vol.5",
+   "total": 3628,
+   "recommend": {
+    "N": 3628,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 67,
+    "rangeHigh": 91
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "ONEUS - 9th Mini Album [",
+   "total": 2221,
+   "recommend": {
+    "N": 2221,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 41,
+    "rangeHigh": 56
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "ONEUS - 8TH MINI ALBUM [",
+   "total": 1720,
+   "recommend": {
+    "N": 1720,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 32,
+    "rangeHigh": 43
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "ONEUS - 10th Mini Album ",
+   "total": 1538,
+   "recommend": {
+    "N": 1538,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 28,
+    "rangeHigh": 38
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[UIQ] Biome Remedy™ Pore",
+   "total": 1034,
+   "recommend": {
+    "N": 1034,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 19,
+    "rangeHigh": 26
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 856,
+   "recommend": {
+    "N": 856,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 16,
+    "rangeHigh": 21
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 18,
+    "cutTopN": 10,
+    "medianTopN": 29.0
+   }
+  },
+  {
+   "member": "[W.DRESSROOM] Perfumed H",
+   "total": 788,
+   "recommend": {
+    "N": 788,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 14,
+    "rangeHigh": 20
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[2CD SET] ONEUS - 10th M",
+   "total": 765,
+   "recommend": {
+    "N": 765,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 14,
+    "rangeHigh": 19
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "ONEUS - 7TH MINI ALBUM [",
+   "total": 679,
+   "recommend": {
+    "N": 679,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 12,
+    "rangeHigh": 17
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "ONEUS - 11th Mini Album ",
+   "total": 401,
+   "recommend": {
+    "N": 401,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 10
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "ONEUS - Single Album [原(",
+   "total": 381,
+   "recommend": {
+    "N": 381,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 10
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·KEONHEE",
+   "total": 290,
+   "recommend": {
+    "N": 290,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 5,
+    "rangeHigh": 7
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 7,
+    "cutTopN": 10,
+    "medianTopN": 35
+   }
+  },
+  {
+   "member": "VideoCall·HWANWOONG",
+   "total": 245,
+   "recommend": {
+    "N": 245,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 5,
+    "cutTopN": 11,
+    "medianTopN": 20
+   }
+  },
+  {
+   "member": "VideoCall·XION",
+   "total": 179,
+   "recommend": {
+    "N": 179,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 3,
+    "rangeHigh": 4
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 4,
+    "cutTopN": 10,
+    "medianTopN": 18.0
+   }
+  },
+  {
+   "member": "VideoCall·SEOHO",
+   "total": 127,
+   "recommend": {
+    "N": 127,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 4,
+    "cutTopN": 10,
+    "medianTopN": 15.5
+   }
+  },
+  {
+   "member": "VideoCall·LEEDO",
+   "total": 123,
+   "recommend": {
+    "N": 123,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 4,
+    "cutTopN": 10,
+    "medianTopN": 13.5
+   }
+  },
+  {
+   "member": "[Dear, Klairs] Illuminat",
+   "total": 104,
+   "recommend": {
+    "N": 104,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Dr.Bio] ECO ALL-IN-ONE ",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
