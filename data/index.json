@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-26T14:55:38+00:00",
+ "updatedAt": "2026-08-26T15:48:03+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -18,6 +18,19 @@
      "hasSummary": false,
      "total": 19068,
      "members": 14
+    },
+    {
+     "eventNo": "44510325",
+     "title": "ROCKY",
+     "description": "Off-line Sign Event",
+     "start": "2026-08-26 15:00:00.0",
+     "end": "2026-08-29 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 682,
+     "members": 2
     },
     {
      "eventNo": "44469917",
@@ -356,17 +369,6 @@
      "hasSummary": true,
      "total": 15079,
      "members": 18
-    },
-    {
-     "eventNo": "44510325",
-     "title": "ROCKY",
-     "description": "Off-line Sign Event",
-     "start": "2026-08-26 15:00:00.0",
-     "end": "2026-08-29 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
