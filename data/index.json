@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-26T17:58:49+00:00",
+ "updatedAt": "2026-08-26T18:00:06+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44509589",
-     "title": "MINHO",
-     "description": "SPECIAL PHOTO EVENT& SIGN EVENT",
-     "start": "2026-08-24 18:00:00.0",
-     "end": "2026-08-26 18:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 19068,
-     "members": 14
-    },
     {
      "eventNo": "44510325",
      "title": "ROCKY",
@@ -369,6 +356,19 @@
      "hasSummary": true,
      "total": 15079,
      "members": 18
+    },
+    {
+     "eventNo": "44509589",
+     "title": "MINHO",
+     "description": "SPECIAL PHOTO EVENT& SIGN EVENT",
+     "start": "2026-08-24 18:00:00.0",
+     "end": "2026-08-26 18:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 19068,
+     "members": 14
     }
    ]
   },
