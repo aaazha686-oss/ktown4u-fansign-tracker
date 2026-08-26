@@ -1,0 +1,245 @@
+{
+ "eventNo": "44509589",
+ "platform": "ktown4u",
+ "title": "MINHO",
+ "end": "2026-08-26 18:00:00.0",
+ "computedAt": "2026-08-26T18:00:17+00:00",
+ "totalAllMembers": 19068,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "MINHO - 1st Album [CALL ",
+   "total": 9025,
+   "recommend": {
+    "N": 9025,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 165,
+    "rangeHigh": 226
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "MINHO - The 1st Mini Alb",
+   "total": 5464,
+   "recommend": {
+    "N": 5464,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 100,
+    "rangeHigh": 137
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "MINHO - 1st Single Album",
+   "total": 1360,
+   "recommend": {
+    "N": 1360,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 25,
+    "rangeHigh": 34
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 567,
+   "recommend": {
+    "N": 567,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 10,
+    "rangeHigh": 14
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 11,
+    "cutTopN": 15,
+    "medianTopN": 38
+   }
+  },
+  {
+   "member": "[SPECIAL PHOTO EVENT] MI",
+   "total": 550,
+   "recommend": {
+    "N": 550,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 10,
+    "rangeHigh": 14
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 8,
+    "cutTopN": 10,
+    "medianTopN": 50.0
+   }
+  },
+  {
+   "member": "[AXIS-Y] Dark Spot Corre",
+   "total": 393,
+   "recommend": {
+    "N": 393,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 7,
+    "rangeHigh": 10
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[SKIN1004] Madagascar Ce",
+   "total": 347,
+   "recommend": {
+    "N": 347,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 6,
+    "rangeHigh": 9
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Ktown4u Special Gift] M",
+   "total": 303,
+   "recommend": {
+    "N": 303,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 6,
+    "rangeHigh": 8
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "MINHO - 2nd Mini Album [",
+   "total": 300,
+   "recommend": {
+    "N": 300,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 6,
+    "rangeHigh": 8
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "MINHO - [CALL BACK MD] B",
+   "total": 251,
+   "recommend": {
+    "N": 251,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 5,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[W.DRESSROOM] PERFUME HA",
+   "total": 241,
+   "recommend": {
+    "N": 241,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Dear, Klairs] Illuminat",
+   "total": 105,
+   "recommend": {
+    "N": 105,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "MINHO - [CALL BACK MD] T",
+   "total": 89,
+   "recommend": {
+    "N": 89,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "MINHO - [CALL BACK MD] A",
+   "total": 73,
+   "recommend": {
+    "N": 73,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
