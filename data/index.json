@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-08-28T23:59:58+00:00",
+ "updatedAt": "2026-08-29T00:01:09+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44510325",
-     "title": "ROCKY",
-     "description": "Off-line Sign Event",
-     "start": "2026-08-26 15:00:00.0",
-     "end": "2026-08-29 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 779,
-     "members": 2
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -369,6 +356,19 @@
      "hasSummary": true,
      "total": 19068,
      "members": 14
+    },
+    {
+     "eventNo": "44510325",
+     "title": "ROCKY",
+     "description": "Off-line Sign Event",
+     "start": "2026-08-26 15:00:00.0",
+     "end": "2026-08-29 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 779,
+     "members": 2
     }
    ]
   },

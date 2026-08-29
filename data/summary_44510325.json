@@ -1,0 +1,51 @@
+{
+ "eventNo": "44510325",
+ "platform": "ktown4u",
+ "title": "ROCKY",
+ "end": "2026-08-29 00:00:00.0",
+ "computedAt": "2026-08-29T00:00:04+00:00",
+ "totalAllMembers": 779,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "ROCKY - 2nd Mini Album [",
+   "total": 646,
+   "recommend": {
+    "N": 646,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 12,
+    "rangeHigh": 16
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 133,
+   "recommend": {
+    "N": 133,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 2,
+    "rangeHigh": 3
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 3,
+    "cutTopN": 10,
+    "medianTopN": 10
+   }
+  }
+ ]
+}
