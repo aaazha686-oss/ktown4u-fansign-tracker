@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-11T11:00:55+00:00",
+ "updatedAt": "2026-09-11T11:02:04+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -18,6 +18,19 @@
      "hasSummary": false,
      "total": 1407,
      "members": 4
+    },
+    {
+     "eventNo": "44517853",
+     "title": "n.SSign",
+     "description": "Video Call Event",
+     "start": "2026-09-11 11:00:00.0",
+     "end": "2026-09-21 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 8214,
+     "members": 17
     },
     {
      "eventNo": "44469917",
@@ -382,17 +395,6 @@
      "hasSummary": true,
      "total": 779,
      "members": 2
-    },
-    {
-     "eventNo": "44517853",
-     "title": "n.SSign",
-     "description": "Video Call Event",
-     "start": "2026-09-11 11:00:00.0",
-     "end": "2026-09-21 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
