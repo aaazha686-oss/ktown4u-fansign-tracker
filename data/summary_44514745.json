@@ -1,0 +1,81 @@
+{
+ "eventNo": "44514745",
+ "platform": "ktown4u",
+ "title": "FLARE U",
+ "end": "2026-09-13 00:00:00.0",
+ "computedAt": "2026-09-13T00:00:30+00:00",
+ "totalAllMembers": 1407,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "FLARE U - 1st Mini Album",
+   "total": 1407,
+   "recommend": {
+    "N": 1407,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 26,
+    "rangeHigh": 35
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·CHUEI LI YU",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·KANG WOO JIN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
