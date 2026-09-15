@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-09-14T23:59:49+00:00",
+ "updatedAt": "2026-09-15T00:00:58+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44516061",
-     "title": "소연 (SOYEON)",
-     "description": "On / Off-line Video Call",
-     "start": "2026-09-12 15:00:00.0",
-     "end": "2026-09-15 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 0,
-     "members": 2
-    },
     {
      "eventNo": "44518373",
      "title": "AxMxP",
@@ -434,6 +421,19 @@
      "hasSummary": true,
      "total": 1407,
      "members": 4
+    },
+    {
+     "eventNo": "44516061",
+     "title": "소연 (SOYEON)",
+     "description": "On / Off-line Video Call",
+     "start": "2026-09-12 15:00:00.0",
+     "end": "2026-09-15 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 0,
+     "members": 2
     }
    ]
   },
