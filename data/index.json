@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-09-16T23:58:56+00:00",
+ "updatedAt": "2026-09-17T00:00:09+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44518373",
-     "title": "AxMxP",
-     "description": "ON / Off-line Video Call",
-     "start": "2026-09-14 14:00:00.0",
-     "end": "2026-09-17 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 4803,
-     "members": 8
-    },
     {
      "eventNo": "44517634",
      "title": "ALLDAY PROJECT",
@@ -434,6 +421,19 @@
      "hasSummary": true,
      "total": 0,
      "members": 2
+    },
+    {
+     "eventNo": "44518373",
+     "title": "AxMxP",
+     "description": "ON / Off-line Video Call",
+     "start": "2026-09-14 14:00:00.0",
+     "end": "2026-09-17 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 4803,
+     "members": 8
     }
    ]
   },
