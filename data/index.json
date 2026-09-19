@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-09-18T23:58:53+00:00",
+ "updatedAt": "2026-09-19T00:00:10+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44517634",
-     "title": "ALLDAY PROJECT",
-     "description": "Off-line Sign Event",
-     "start": "2026-09-14 14:00:00.0",
-     "end": "2026-09-19 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 8647,
-     "members": 11
-    },
     {
      "eventNo": "44517853",
      "title": "n.SSign",
@@ -434,6 +421,19 @@
      "hasSummary": true,
      "total": 4803,
      "members": 8
+    },
+    {
+     "eventNo": "44517634",
+     "title": "ALLDAY PROJECT",
+     "description": "Off-line Sign Event",
+     "start": "2026-09-14 14:00:00.0",
+     "end": "2026-09-19 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 8647,
+     "members": 11
     }
    ]
   },
