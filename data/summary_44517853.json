@@ -1,0 +1,289 @@
+{
+ "eventNo": "44517853",
+ "platform": "ktown4u",
+ "title": "n.SSign",
+ "end": "2026-09-21 00:00:00.0",
+ "computedAt": "2026-09-21T00:00:26+00:00",
+ "totalAllMembers": 8212,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "n.SSign - 3rd Mini Album",
+   "total": 2320,
+   "recommend": {
+    "N": 2320,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 43,
+    "rangeHigh": 58
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "n.SSign - 2nd MINI ALBUM",
+   "total": 2171,
+   "recommend": {
+    "N": 2171,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 40,
+    "rangeHigh": 54
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "n.SSign - Special Album ",
+   "total": 1577,
+   "recommend": {
+    "N": 1577,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 29,
+    "rangeHigh": 39
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "n.SSign - [Funky like me",
+   "total": 1181,
+   "recommend": {
+    "N": 1181,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 22,
+    "rangeHigh": 30
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[UIQ] Biome Barrier™ Cre",
+   "total": 418,
+   "recommend": {
+    "N": 418,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 8,
+    "rangeHigh": 10
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[W.DRESSROOM] Perfumed H",
+   "total": 211,
+   "recommend": {
+    "N": 211,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 5
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[2CD SET] n.SSign - 2nd ",
+   "total": 197,
+   "recommend": {
+    "N": 197,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 5
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "n.SSign - DEBUT ALBUM [B",
+   "total": 67,
+   "recommend": {
+    "N": 67,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[CHALLANS de PARIS] CUSH",
+   "total": 43,
+   "recommend": {
+    "N": 43,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 1
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[K-SECRET] SEOUL 1988 Cr",
+   "total": 27,
+   "recommend": {
+    "N": 27,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 1
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·KAZUTA",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·DOHA",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·SUNGYUN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·ROBIN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·HANJUN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·LAURENCE",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·HUIWON",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
