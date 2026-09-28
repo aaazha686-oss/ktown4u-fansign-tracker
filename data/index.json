@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-28T03:00:40+00:00",
+ "updatedAt": "2026-09-28T03:01:55+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -452,7 +452,7 @@
      "eventNo": "44523627",
      "title": "KIM JAE HWAN",
      "description": "Off-line Sign Event",
-     "start": "2026-09-22 12:00:00.0",
+     "start": "2026-09-28 12:00:00.0",
      "end": "2026-10-02 00:00:00.0",
      "autofound": true,
      "status": "upcoming",
