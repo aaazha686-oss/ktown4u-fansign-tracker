@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-05T06:00:19+00:00",
+ "updatedAt": "2026-10-05T06:01:34+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -473,6 +473,17 @@
      "hasSummary": true,
      "total": 0,
      "members": 1
+    },
+    {
+     "eventNo": "44525439",
+     "title": "Nam Woo Hyun",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-05 15:00:00.0",
+     "end": "2026-10-08 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
