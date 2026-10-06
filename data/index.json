@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-06T08:00:38+00:00",
+ "updatedAt": "2026-10-06T08:01:50+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -486,6 +486,17 @@
      "hasSummary": true,
      "total": 0,
      "members": 1
+    },
+    {
+     "eventNo": "44543095",
+     "title": "EVNNE",
+     "description": "ON / Off-line Video Call",
+     "start": "2026-10-06 17:00:00.0",
+     "end": "2026-10-09 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     },
     {
      "eventNo": "44543309",
