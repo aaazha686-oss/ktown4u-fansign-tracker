@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-10-06T23:59:57+00:00",
+ "updatedAt": "2026-10-07T00:01:04+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44524787",
-     "title": "JAYN",
-     "description": "Video Call Event",
-     "start": "2026-10-02 14:00:00.0",
-     "end": "2026-10-07 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 0,
-     "members": 1
-    },
     {
      "eventNo": "44525439",
      "title": "Nam Woo Hyun",
@@ -510,6 +497,19 @@
      "status": "ended",
      "tracked": true,
      "hasSummary": true,
+     "total": 0,
+     "members": 1
+    },
+    {
+     "eventNo": "44524787",
+     "title": "JAYN",
+     "description": "Video Call Event",
+     "start": "2026-10-02 14:00:00.0",
+     "end": "2026-10-07 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
      "total": 0,
      "members": 1
     }
