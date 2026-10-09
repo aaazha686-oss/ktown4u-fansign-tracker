@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-10-08T23:58:50+00:00",
+ "updatedAt": "2026-10-09T00:52:01+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44543095",
-     "title": "EVNNE",
-     "description": "ON / Off-line Video Call",
-     "start": "2026-10-06 17:00:00.0",
-     "end": "2026-10-09 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 79,
-     "members": 12
-    },
     {
      "eventNo": "44543309",
      "title": "TUIDE",
@@ -512,6 +499,19 @@
      "hasSummary": true,
      "total": 0,
      "members": 2
+    },
+    {
+     "eventNo": "44543095",
+     "title": "EVNNE",
+     "description": "ON / Off-line Video Call",
+     "start": "2026-10-06 17:00:00.0",
+     "end": "2026-10-09 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 79,
+     "members": 12
     }
    ]
   },

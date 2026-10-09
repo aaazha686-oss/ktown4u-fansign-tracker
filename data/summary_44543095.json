@@ -1,0 +1,209 @@
+{
+ "eventNo": "44543095",
+ "platform": "ktown4u",
+ "title": "EVNNE",
+ "end": "2026-10-09 00:00:00.0",
+ "computedAt": "2026-10-09T00:50:49+00:00",
+ "totalAllMembers": 79,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "EVNNE - 6th Mini Album [",
+   "total": 79,
+   "recommend": {
+    "N": 79,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 2
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·KEITA",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·PARK HANBIN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·LEE JEONGHYEON",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·MUN JUNGHYUN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·PARK JIHOO",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Photo Event] (KEITA) EV",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Photo Event] (PARK HANB",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Photo Event] (LEE JEONG",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Photo Event] (MUN JUNGH",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Photo Event] (PARK JIHO",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
