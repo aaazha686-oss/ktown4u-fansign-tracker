@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-13T09:00:44+00:00",
+ "updatedAt": "2026-10-13T09:02:00+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -512,6 +512,17 @@
      "hasSummary": true,
      "total": 0,
      "members": 2
+    },
+    {
+     "eventNo": "44546452",
+     "title": "NCT 127 ",
+     "description": "Video Call Event",
+     "start": "2026-10-13 18:00:00.0",
+     "end": "2026-10-16 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
