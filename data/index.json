@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-17T14:01:08+00:00",
+ "updatedAt": "2026-10-17T14:02:18+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -31,6 +31,19 @@
      "hasSummary": false,
      "total": 62875,
      "members": 14
+    },
+    {
+     "eventNo": "44547623",
+     "title": "You Chaehoon",
+     "description": "On / Off-line Video Call",
+     "start": "2026-10-17 14:00:00.0",
+     "end": "2026-10-20 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 0,
+     "members": 2
     },
     {
      "eventNo": "44469917",
@@ -551,17 +564,6 @@
      "hasSummary": true,
      "total": 1666378,
      "members": 51
-    },
-    {
-     "eventNo": "44547623",
-     "title": "You Chaehoon",
-     "description": "On / Off-line Video Call",
-     "start": "2026-10-17 14:00:00.0",
-     "end": "2026-10-20 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
