@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-17T01:00:00+00:00",
+ "updatedAt": "2026-10-17T01:01:15+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -538,6 +538,17 @@
      "hasSummary": true,
      "total": 1666378,
      "members": 51
+    },
+    {
+     "eventNo": "44546738",
+     "title": "NEXZ(넥스지)",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-17 10:00:00.0",
+     "end": "2026-10-20 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
