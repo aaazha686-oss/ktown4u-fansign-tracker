@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-18T00:50:16+00:00",
+ "updatedAt": "2026-10-18T01:43:06+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -564,6 +564,17 @@
      "hasSummary": true,
      "total": 1666378,
      "members": 51
+    },
+    {
+     "eventNo": "44548049",
+     "title": "B THE HOOD",
+     "description": "Video Call Event",
+     "start": "2026-10-18 10:00:00.0",
+     "end": "2026-10-21 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
