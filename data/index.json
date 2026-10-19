@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-19T18:00:04+00:00",
+ "updatedAt": "2026-10-19T18:01:16+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -57,6 +57,19 @@
      "hasSummary": false,
      "total": 2,
      "members": 6
+    },
+    {
+     "eventNo": "44548531",
+     "title": "NCT WISH",
+     "description": "Video Call Event",
+     "start": "2026-10-19 18:00:00.0",
+     "end": "2026-10-21 18:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 185966,
+     "members": 25
     },
     {
      "eventNo": "44469917",
@@ -577,17 +590,6 @@
      "hasSummary": true,
      "total": 1666378,
      "members": 51
-    },
-    {
-     "eventNo": "44548531",
-     "title": "NCT WISH",
-     "description": "Video Call Event",
-     "start": "2026-10-19 18:00:00.0",
-     "end": "2026-10-21 18:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     },
     {
      "eventNo": "44547014",
