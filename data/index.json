@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-19T10:00:18+00:00",
+ "updatedAt": "2026-10-19T10:01:42+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -584,6 +584,17 @@
      "description": "Video Call Event",
      "start": "2026-10-19 18:00:00.0",
      "end": "2026-10-21 18:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
+    },
+    {
+     "eventNo": "44547014",
+     "title": "MAX CHANGMIN",
+     "description": "Special Photo Event & Sign Event",
+     "start": "2026-10-19 19:00:00.0",
+     "end": "2026-10-22 00:00:00.0",
      "autofound": true,
      "status": "upcoming",
      "tracked": false,
