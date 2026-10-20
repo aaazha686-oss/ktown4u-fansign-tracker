@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-20T00:01:01+00:00",
+ "updatedAt": "2026-10-20T00:02:21+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -574,7 +574,7 @@
      "autofound": true,
      "status": "ended",
      "tracked": true,
-     "hasSummary": false,
+     "hasSummary": true,
      "total": 3570,
      "members": 28
     },
@@ -587,7 +587,7 @@
      "autofound": true,
      "status": "ended",
      "tracked": true,
-     "hasSummary": false,
+     "hasSummary": true,
      "total": 62886,
      "members": 14
     },
@@ -600,7 +600,7 @@
      "autofound": true,
      "status": "ended",
      "tracked": true,
-     "hasSummary": false,
+     "hasSummary": true,
      "total": 0,
      "members": 2
     }

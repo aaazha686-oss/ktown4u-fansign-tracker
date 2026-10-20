@@ -1,0 +1,241 @@
+{
+ "eventNo": "44546738",
+ "platform": "ktown4u",
+ "title": "NEXZ(넥스지)",
+ "end": "2026-10-20 00:00:00.0",
+ "computedAt": "2026-10-20T00:01:15+00:00",
+ "totalAllMembers": 62886,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "NEXZ - 2nd Mini Album [O",
+   "total": 19151,
+   "recommend": {
+    "N": 19151,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 351,
+    "rangeHigh": 479
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[First Press] NEXZ - 2nd",
+   "total": 15521,
+   "recommend": {
+    "N": 15521,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 285,
+    "rangeHigh": 388
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "NEXZ - 1st Mini Album [N",
+   "total": 11599,
+   "recommend": {
+    "N": 11599,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 213,
+    "rangeHigh": 290
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "NEXZ - 4th Mini Album [S",
+   "total": 6536,
+   "recommend": {
+    "N": 6536,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 120,
+    "rangeHigh": 163
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "NEXZ - 3rd Mini Album [B",
+   "total": 6066,
+   "recommend": {
+    "N": 6066,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 111,
+    "rangeHigh": 152
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "NEXZ - 1st Single Album ",
+   "total": 1779,
+   "recommend": {
+    "N": 1779,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 33,
+    "rangeHigh": 44
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "NEXZ - 1st Mini Album  [",
+   "total": 1029,
+   "recommend": {
+    "N": 1029,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 19,
+    "rangeHigh": 26
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "NEXZ - 2027 Season's Gre",
+   "total": 732,
+   "recommend": {
+    "N": 732,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 13,
+    "rangeHigh": 18
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[W.DRESSROOM] PERFUME HA",
+   "total": 225,
+   "recommend": {
+    "N": 225,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 6
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[UIQ] Tag Me Biome Hand ",
+   "total": 200,
+   "recommend": {
+    "N": 200,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 4,
+    "rangeHigh": 5
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Wati For Skin] Collagen",
+   "total": 46,
+   "recommend": {
+    "N": 46,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 1,
+    "rangeHigh": 1
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Mary&May] Rice niacin 1",
+   "total": 2,
+   "recommend": {
+    "N": 2,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·Random Ver.",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
