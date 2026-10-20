@@ -1,50 +1,11 @@
 {
- "updatedAt": "2026-10-19T23:59:39+00:00",
+ "updatedAt": "2026-10-20T00:01:01+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44547419",
-     "title": "xikers",
-     "description": "On / Off-line Video Call",
-     "start": "2026-10-16 11:00:00.0",
-     "end": "2026-10-20 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 3570,
-     "members": 28
-    },
-    {
-     "eventNo": "44546738",
-     "title": "NEXZ(넥스지)",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-10-17 10:00:00.0",
-     "end": "2026-10-20 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 62886,
-     "members": 14
-    },
-    {
-     "eventNo": "44547623",
-     "title": "You Chaehoon",
-     "description": "On / Off-line Video Call",
-     "start": "2026-10-17 14:00:00.0",
-     "end": "2026-10-20 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 0,
-     "members": 2
-    },
     {
      "eventNo": "44548049",
      "title": "B THE HOOD",
@@ -603,6 +564,45 @@
      "hasSummary": true,
      "total": 1666378,
      "members": 51
+    },
+    {
+     "eventNo": "44547419",
+     "title": "xikers",
+     "description": "On / Off-line Video Call",
+     "start": "2026-10-16 11:00:00.0",
+     "end": "2026-10-20 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 3570,
+     "members": 28
+    },
+    {
+     "eventNo": "44546738",
+     "title": "NEXZ(넥스지)",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-17 10:00:00.0",
+     "end": "2026-10-20 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 62886,
+     "members": 14
+    },
+    {
+     "eventNo": "44547623",
+     "title": "You Chaehoon",
+     "description": "On / Off-line Video Call",
+     "start": "2026-10-17 14:00:00.0",
+     "end": "2026-10-20 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 0,
+     "members": 2
     }
    ]
   },
