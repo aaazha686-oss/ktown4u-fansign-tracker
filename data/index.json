@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-10-20T23:59:23+00:00",
+ "updatedAt": "2026-10-21T00:00:45+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44548049",
-     "title": "B THE HOOD",
-     "description": "Video Call Event",
-     "start": "2026-10-18 10:00:00.0",
-     "end": "2026-10-21 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 5,
-     "members": 6
-    },
     {
      "eventNo": "44548531",
      "title": "NCT WISH",
@@ -603,6 +590,19 @@
      "hasSummary": true,
      "total": 0,
      "members": 2
+    },
+    {
+     "eventNo": "44548049",
+     "title": "B THE HOOD",
+     "description": "Video Call Event",
+     "start": "2026-10-18 10:00:00.0",
+     "end": "2026-10-21 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 5,
+     "members": 6
     }
    ]
   },
