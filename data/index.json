@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-21T05:00:26+00:00",
+ "updatedAt": "2026-10-21T05:01:47+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -603,6 +603,17 @@
      "hasSummary": true,
      "total": 5,
      "members": 6
+    },
+    {
+     "eventNo": "44549781",
+     "title": "LNGSHOT",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-21 14:00:00.0",
+     "end": "2026-10-23 23:59:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
