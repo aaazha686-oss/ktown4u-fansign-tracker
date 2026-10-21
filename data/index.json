@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-10-21T17:59:23+00:00",
+ "updatedAt": "2026-10-21T18:00:36+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44548531",
-     "title": "NCT WISH",
-     "description": "Video Call Event",
-     "start": "2026-10-19 18:00:00.0",
-     "end": "2026-10-21 18:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 186489,
-     "members": 25
-    },
     {
      "eventNo": "44547014",
      "title": "MAX CHANGMIN",
@@ -616,6 +603,19 @@
      "hasSummary": true,
      "total": 5,
      "members": 6
+    },
+    {
+     "eventNo": "44548531",
+     "title": "NCT WISH",
+     "description": "Video Call Event",
+     "start": "2026-10-19 18:00:00.0",
+     "end": "2026-10-21 18:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 186489,
+     "members": 25
     }
    ]
   },
