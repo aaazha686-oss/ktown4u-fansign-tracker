@@ -1,0 +1,67 @@
+{
+ "eventNo": "44549781",
+ "platform": "ktown4u",
+ "title": "LNGSHOT",
+ "end": "2026-10-23 23:59:00.0",
+ "computedAt": "2026-10-24T00:00:02+00:00",
+ "totalAllMembers": 2002,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "LNGSHOT EP [S.W.I.S.H.] ",
+   "total": 2002,
+   "recommend": {
+    "N": 2002,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 37,
+    "rangeHigh": 50
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 3,
+    "cutTopN": 12,
+    "medianTopN": 14
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·Standard Ver.",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
