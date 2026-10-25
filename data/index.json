@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-10-24T23:21:18+00:00",
+ "updatedAt": "2026-10-25T00:14:19+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44550217",
-     "title": "KickFlip",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-10-22 15:00:00.0",
-     "end": "2026-10-25 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 9816,
-     "members": 19
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -629,6 +616,19 @@
      "hasSummary": true,
      "total": 2002,
      "members": 3
+    },
+    {
+     "eventNo": "44550217",
+     "title": "KickFlip",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-22 15:00:00.0",
+     "end": "2026-10-25 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": true,
+     "total": 9816,
+     "members": 19
     }
    ]
   },
