@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-26T03:00:22+00:00",
+ "updatedAt": "2026-10-26T03:01:39+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -629,6 +629,17 @@
      "hasSummary": true,
      "total": 9816,
      "members": 19
+    },
+    {
+     "eventNo": "44551746",
+     "title": "IVE",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-26 12:00:00.0",
+     "end": "2026-10-29 23:59:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
