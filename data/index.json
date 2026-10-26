@@ -1,11 +1,24 @@
 {
- "updatedAt": "2026-10-26T12:00:56+00:00",
+ "updatedAt": "2026-10-26T12:02:08+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
+    {
+     "eventNo": "44551746",
+     "title": "IVE",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-10-26 12:00:00.0",
+     "end": "2026-10-29 23:59:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 34636,
+     "members": 19
+    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -629,17 +642,6 @@
      "hasSummary": true,
      "total": 9816,
      "members": 19
-    },
-    {
-     "eventNo": "44551746",
-     "title": "IVE",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-10-26 12:00:00.0",
-     "end": "2026-10-29 23:59:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
