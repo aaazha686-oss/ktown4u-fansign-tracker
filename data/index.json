@@ -1,11 +1,24 @@
 {
- "updatedAt": "2026-11-01T11:00:42+00:00",
+ "updatedAt": "2026-11-01T11:01:56+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
+    {
+     "eventNo": "44554869",
+     "title": "TWS",
+     "description": "개인 영상통화 사인회",
+     "start": "2026-11-01 11:00:00.0",
+     "end": "2026-11-04 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 36150,
+     "members": 19
+    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -642,17 +655,6 @@
      "hasSummary": true,
      "total": 37080,
      "members": 20
-    },
-    {
-     "eventNo": "44554869",
-     "title": "TWS",
-     "description": "개인 영상통화 사인회",
-     "start": "2026-11-01 11:00:00.0",
-     "end": "2026-11-04 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
