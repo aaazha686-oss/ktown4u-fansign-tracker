@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-11-06T23:59:17+00:00",
+ "updatedAt": "2026-11-07T00:00:31+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44555326",
-     "title": "FLARE U",
-     "description": "On / Off-line Video Call",
-     "start": "2026-11-04 15:00:00.0",
-     "end": "2026-11-07 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 12810,
-     "members": 10
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
@@ -668,6 +655,19 @@
      "hasSummary": true,
      "total": 36264,
      "members": 19
+    },
+    {
+     "eventNo": "44555326",
+     "title": "FLARE U",
+     "description": "On / Off-line Video Call",
+     "start": "2026-11-04 15:00:00.0",
+     "end": "2026-11-07 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 12810,
+     "members": 10
     }
    ]
   },
