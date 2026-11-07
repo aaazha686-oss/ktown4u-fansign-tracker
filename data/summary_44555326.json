@@ -1,0 +1,177 @@
+{
+ "eventNo": "44555326",
+ "platform": "ktown4u",
+ "title": "FLARE U",
+ "end": "2026-11-07 00:00:00.0",
+ "computedAt": "2026-11-07T00:00:43+00:00",
+ "totalAllMembers": 12810,
+ "params": {
+  "slots": 30,
+  "phiLow": 0.55,
+  "phiHigh": 0.75,
+  "bigThreshold": 10,
+  "note": "建议区间=φ·N/S(主, 稳健); deltaDecomp=大单(>=阈值)拆解(实验, 偏估); 小于阈值的增量含‘后期补单’与‘散粉买卡’两类,无法区分账号,故只作参考"
+ },
+ "members": [
+  {
+   "member": "FLARE U - 2nd Mini Album",
+   "total": 4296,
+   "recommend": {
+    "N": 4296,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 79,
+    "rangeHigh": 107
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Meality] BLURRING GLOW ",
+   "total": 3144,
+   "recommend": {
+    "N": 3144,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 58,
+    "rangeHigh": 79
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "FLARE U - 1st Mini Album",
+   "total": 2926,
+   "recommend": {
+    "N": 2926,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 54,
+    "rangeHigh": 73
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[Neonaire K] Blur Layere",
+   "total": 1795,
+   "recommend": {
+    "N": 1795,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 33,
+    "rangeHigh": 45
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[UIQ] Biome Remedy™ Perf",
+   "total": 640,
+   "recommend": {
+    "N": 640,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 12,
+    "rangeHigh": 16
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "FLARE U - 2027 SEASON'S ",
+   "total": 5,
+   "recommend": {
+    "N": 5,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "[MORGAN COFFEE] Specialt",
+   "total": 4,
+   "recommend": {
+    "N": 4,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "OffLine",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·CHUEI LI YU",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  },
+  {
+   "member": "VideoCall·KANG WOO JIN",
+   "total": 0,
+   "recommend": {
+    "N": 0,
+    "slots": 30,
+    "phiLow": 0.55,
+    "phiHigh": 0.75,
+    "rangeLow": 0,
+    "rangeHigh": 0
+   },
+   "deltaDecomp": {
+    "threshold": 10,
+    "bigOrderCount": 0
+   }
+  }
+ ]
+}
