@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-08T23:59:59+00:00",
+ "updatedAt": "2026-11-09T00:01:22+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -18,6 +18,19 @@
      "hasSummary": false,
      "total": 1612,
      "members": 4
+    },
+    {
+     "eventNo": "44553792",
+     "title": "SM FanSignal Lip Balm x Ktown4u",
+     "description": "",
+     "start": "2026-11-09 00:00:00.0",
+     "end": "2099-12-31 23:59:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 226815,
+     "members": 36
     },
     {
      "eventNo": "44469917",
@@ -681,17 +694,6 @@
      "hasSummary": true,
      "total": 12810,
      "members": 10
-    },
-    {
-     "eventNo": "44553792",
-     "title": "SM FanSignal Lip Balm x Ktown4u",
-     "description": "",
-     "start": "2026-11-09 00:00:00.0",
-     "end": "2099-12-31 23:59:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
