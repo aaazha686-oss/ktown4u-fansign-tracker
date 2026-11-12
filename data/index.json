@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-11-11T23:59:30+00:00",
+ "updatedAt": "2026-11-12T00:00:51+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44628593",
-     "title": "Dragon Pony",
-     "description": "On / Off-line Sign Event",
-     "start": "2026-11-08 14:00:00.0",
-     "end": "2026-11-12 00:00:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 1612,
-     "members": 4
-    },
     {
      "eventNo": "44553792",
      "title": "SM FanSignal Lip Balm x Ktown4u",
@@ -694,6 +681,19 @@
      "hasSummary": true,
      "total": 12810,
      "members": 10
+    },
+    {
+     "eventNo": "44628593",
+     "title": "Dragon Pony",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-11-08 14:00:00.0",
+     "end": "2026-11-12 00:00:00.0",
+     "autofound": true,
+     "status": "ended",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 1612,
+     "members": 4
     }
    ]
   },
