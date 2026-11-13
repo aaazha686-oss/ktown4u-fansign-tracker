@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-13T06:00:15+00:00",
+ "updatedAt": "2026-11-13T06:01:39+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -694,6 +694,17 @@
      "hasSummary": true,
      "total": 1612,
      "members": 4
+    },
+    {
+     "eventNo": "44631595",
+     "title": "WE GO-6",
+     "description": "Video Call Event",
+     "start": "2026-11-13 15:00:00.0",
+     "end": "2026-11-16 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
