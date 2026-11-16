@@ -4,6 +4,7 @@
   "commitEvery": 60,
   "discoverEvery": 60,
   "fanmeEvery": 10,
+  "goodsEvery": 20,
   "ktown4u": {
     "shopNo": 164,
     "autoTrackOpenFansign": true,
