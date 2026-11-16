@@ -327,26 +327,58 @@ def build_index(discovered, tracked):
 
 
 # ---------- git ----------
+def _successor_started(repo, pat, since_epoch):
+    """查是否有在 since 之后创建、仍在 queued/in_progress 的 run(即接力真拉起了)。"""
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/repos/{repo}/actions/workflows/track.yml/runs?per_page=5",
+            headers={"Authorization": f"token {pat}", "Accept": "application/vnd.github+json"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            runs = json.loads(r.read()).get("workflow_runs", [])
+        for run in runs:
+            if run.get("status") in ("queued", "in_progress"):
+                ct = datetime.strptime(run["created_at"], "%Y-%m-%dT%H:%M:%SZ").replace(
+                    tzinfo=timezone.utc).timestamp()
+                if ct >= since_epoch - 10:
+                    return True
+    except Exception as e:
+        print("查接力状态失败:", e)
+    return False
+
+
 def dispatch_next():
-    """任务正常结束前,用 PAT 触发下一个运行(GITHUB_TOKEN 触发的不算,故需 PAT)。"""
+    """任务正常结束前,用 PAT 触发下一个运行,并**验证**它真的起来了。
+    只返回 204 不代表 run 真被创建(GitHub 偶发),所以派发后轮询确认,没起来就重试,
+    堵住'干净结束但接力没拉起 -> 几十分钟空档'这个坑。"""
     pat = os.environ.get("PAT", "")
     repo = os.environ.get("REPO", "")
     if not (pat and repo):
         print("无 PAT,跳过自我接力(改靠 schedule 兜底)")
         return
-    # 重试多次:一次失败就断链会导致几小时空档,所以多试几次
-    for attempt in range(5):
+    for rnd in range(4):
+        t0 = time.time()
         try:
             req = urllib.request.Request(
                 f"https://api.github.com/repos/{repo}/actions/workflows/track.yml/dispatches",
                 data=json.dumps({"ref": "main"}).encode(), method="POST",
                 headers={"Authorization": f"token {pat}", "Accept": "application/vnd.github+json"})
             urllib.request.urlopen(req, timeout=20)
-            print("✅ 自我接力:已派发下一个运行")
-            return
+            print(f"✅ 已派发接力(第{rnd+1}轮),验证新任务是否起来…")
         except Exception as e:
-            print(f"自我接力失败(第{attempt+1}次):{e}")
+            print(f"派发失败(第{rnd+1}轮):{e}")
             time.sleep(5)
+            continue
+        # 验证最多 ~60s:被新任务取消(_STOP)也算成功
+        for _ in range(12):
+            if _STOP:
+                print("✅ 接力已拉起(本任务被新任务取代)")
+                return
+            time.sleep(5)
+            if _successor_started(repo, pat, t0):
+                print("✅ 接力确认:新任务已在 队列/运行 中")
+                return
+        print(f"⚠️ 第{rnd+1}轮未见新任务,重试派发…")
+    print("⚠️ 接力4轮都没拉起,靠 schedule 兜底")
     print("⚠️ 自我接力5次都失败,靠 schedule 兜底")
 
 
