@@ -1,11 +1,24 @@
 {
- "updatedAt": "2026-11-16T18:00:13+00:00",
+ "updatedAt": "2026-11-16T18:01:31+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
+    {
+     "eventNo": "44630661",
+     "title": "MAX CHANGMIN",
+     "description": "Video Call Event",
+     "start": "2026-11-16 18:00:00.0",
+     "end": "2026-11-19 00:00:00.0",
+     "autofound": true,
+     "status": "live",
+     "tracked": true,
+     "hasSummary": false,
+     "total": 7836,
+     "members": 7
+    },
     {
      "eventNo": "44553792",
      "title": "SM FanSignal Lip Balm x Ktown4u",
@@ -707,17 +720,6 @@
      "hasSummary": true,
      "total": 0,
      "members": 2
-    },
-    {
-     "eventNo": "44630661",
-     "title": "MAX CHANGMIN",
-     "description": "Video Call Event",
-     "start": "2026-11-16 18:00:00.0",
-     "end": "2026-11-19 00:00:00.0",
-     "autofound": true,
-     "status": "upcoming",
-     "tracked": false,
-     "hasSummary": false
     }
    ]
   },
