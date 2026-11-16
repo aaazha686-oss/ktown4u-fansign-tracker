@@ -106,6 +106,18 @@ async function refresh(){
       if(i>=0) INDEX.platforms[i]=fm.platform; else INDEX.platforms.push(fm.platform); }
     if(fm&&fm.updatedAt) stamps.push(fm.updatedAt);
   }catch(e){}
+  // 合并 k4 应募/showcase(goods_index.json,事件并入 ktown4u 平台)
+  try{
+    const gd=JSON.parse(await txt('data/goods_index.json'));
+    if(gd&&gd.events&&gd.events.length){
+      let p=INDEX.platforms.find(x=>x.id==='ktown4u');
+      if(!p){ p={id:'ktown4u',name:'Ktown4u',events:[]}; INDEX.platforms.unshift(p); }
+      p.events=p.events||[];
+      for(const ev of gd.events){ const i=p.events.findIndex(x=>x.eventNo===ev.eventNo);
+        if(i>=0) p.events[i]=ev; else p.events.push(ev); }
+    }
+    if(gd&&gd.updatedAt) stamps.push(gd.updatedAt);
+  }catch(e){}
   // 显示真实"数据时间"(最新一个抓取器写入时间),并在断更时红色告警
   const ms=stamps.filter(Boolean).map(s=>Date.parse(s)).filter(n=>!isNaN(n));
   const last=ms.length?Math.max(...ms):0;
