@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-16T09:01:18+00:00",
+ "updatedAt": "2026-11-16T09:02:43+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -707,6 +707,17 @@
      "hasSummary": true,
      "total": 0,
      "members": 2
+    },
+    {
+     "eventNo": "44630661",
+     "title": "MAX CHANGMIN",
+     "description": "Video Call Event",
+     "start": "2026-11-16 18:00:00.0",
+     "end": "2026-11-19 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
