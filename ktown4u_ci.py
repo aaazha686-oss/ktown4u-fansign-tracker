@@ -49,6 +49,7 @@ RUN_SECONDS = int(os.environ.get("RUN_SECONDS", CFG.get("runSeconds", 1500)))
 COMMIT_EVERY = int(os.environ.get("COMMIT_EVERY", CFG.get("commitEvery", 60)))
 DISCOVER_EVERY = int(os.environ.get("DISCOVER_EVERY", CFG.get("discoverEvery", 300)))
 FANME_EVERY = int(os.environ.get("FANME_EVERY", CFG.get("fanmeEvery", 10)))  # fanme 抓取间隔(秒)
+GOODS_EVERY = int(os.environ.get("GOODS_EVERY", CFG.get("goodsEvery", 20)))   # k4应募/showcase 抓取间隔(秒)
 NOCOMMIT = os.environ.get("NOCOMMIT") == "1"
 DATADIR = "data"
 GQL = "https://apis.ktown4u.com/vador/graphql"
@@ -433,6 +434,21 @@ def _fanme_thread():
             time.sleep(0.5)
 
 
+def _goods_thread():
+    """k4 应募/showcase 独立线程:每 GOODS_EVERY 秒抓一次(商品页209KB较重,默认20s),
+    不受 k4 主循环 CACHE_LOADING(~75s/轮)阻塞。"""
+    import k4goods_ci
+    while not _STOP:
+        t0 = time.time()
+        try:
+            with _IO_LOCK:    # 与 commit_push 互斥
+                k4goods_ci.main()   # 写 track_g<N>.csv + goods_index.json
+        except Exception as e:
+            print("k4goods 抓取出错:", e)
+        while not _STOP and time.time() - t0 < GOODS_EVERY:
+            time.sleep(0.5)
+
+
 def main():
     tracked = refresh_discovery_and_index()
     print("本段追踪:", tracked)
@@ -443,6 +459,7 @@ def main():
     # fanme 用独立线程跑(真10秒),k4 在主循环跑(受API缓存影响~75秒)
     ft = threading.Thread(target=_fanme_thread, daemon=True)
     ft.start()
+    threading.Thread(target=_goods_thread, daemon=True).start()  # k4 应募/showcase 独立快抓
     threading.Thread(target=_watchdog, daemon=True).start()  # 卡死自愈
     while time.time() < end and not _STOP:
         global _LAST_PROGRESS
@@ -461,11 +478,6 @@ def main():
                 musicndrama_ci.main()   # 顺带抓 musicndrama(写自己的 CSV + mnd_index.json)
             except Exception as e:
                 print("musicndrama 抓取出错:", e)
-            try:
-                import k4goods_ci
-                k4goods_ci.main()   # 顺带抓 k4 应募/showcase(按goods_no负库存,写 goods_index.json)
-            except Exception as e:
-                print("k4goods 抓取出错:", e)
             build_index(_DISCOVERED, _TRACKED)  # 用最新 CSV 刷新索引里的总量(不发请求)
             commit_push()
             last_commit = time.time()
