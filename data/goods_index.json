@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-17T07:31:08+00:00",
+ "updatedAt": "2026-11-17T07:32:29+00:00",
  "events": [
   {
    "eventNo": "g172409",
@@ -7,7 +7,7 @@
    "platform": "ktown4u",
    "status": "live",
    "tracked": true,
-   "total": 1956,
+   "total": 1960,
    "members": 1,
    "hasSummary": false,
    "kind": "showcase"
