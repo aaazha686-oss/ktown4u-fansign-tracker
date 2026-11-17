@@ -482,7 +482,13 @@ def _goods_thread():
 
 
 def main():
+    global _LAST_PROGRESS
+    _LAST_PROGRESS = time.time()
+    # 看门狗最先起:覆盖启动发现阶段。之前它在 refresh_discovery 之后才起,
+    # 若卡在启动(网络/发现)就永远救不了 —— 这正是多次~50分钟空档的根因。
+    threading.Thread(target=_watchdog, daemon=True).start()
     tracked = refresh_discovery_and_index()
+    _LAST_PROGRESS = time.time()   # 启动发现可能慢,完成后立即打点
     print("本段追踪:", tracked)
     prev = {e: last_sales(csv_path(e)) for e in tracked}
     end = time.time() + RUN_SECONDS
@@ -492,9 +498,7 @@ def main():
     ft = threading.Thread(target=_fanme_thread, daemon=True)
     ft.start()
     threading.Thread(target=_goods_thread, daemon=True).start()  # k4 应募/showcase 独立快抓
-    threading.Thread(target=_watchdog, daemon=True).start()  # 卡死自愈
     while time.time() < end and not _STOP:
-        global _LAST_PROGRESS
         _LAST_PROGRESS = time.time()   # 每轮开始打点,告诉看门狗主循环还活着
         ts = datetime.now(BJ).isoformat(timespec="seconds")  # 北京时间记录
         for e in tracked:
