@@ -382,14 +382,27 @@ def dispatch_next():
     print("⚠️ 自我接力5次都失败,靠 schedule 兜底")
 
 
+_LAST_PUSH_OK = time.time()   # 上次成功推送时间(看门狗用)
+PUSH_STALE_SEC = 600          # 超过这么久没推送成功 -> 视为"活着但推不上去",同样自愈
+
+
 def _watchdog():
-    """看门狗:主循环若超过 WATCHDOG_SEC 没推进(卡在某个网络调用/git),
-    就强制接力一个新任务并退出本进程,实现自愈(GitHub schedule 不可靠,不能只靠它)。"""
+    """看门狗,两种卡死都管:
+    1) 主循环 >WATCHDOG_SEC 没推进(卡在网络调用/git);
+    2) 主循环在转,但 >PUSH_STALE_SEC 没成功推送(如 git 卡在冲突/游离 HEAD)
+       —— 这才是多次~半小时断更的真凶:进程活着,数据却一直推不上去。
+    触发后接力新任务(全新 checkout)并硬退出。"""
     while not _STOP:
         time.sleep(20)
         stalled = time.time() - _LAST_PROGRESS
+        unpushed = time.time() - _LAST_PUSH_OK
+        why = None
         if stalled > WATCHDOG_SEC:
-            print(f"⚠️ 看门狗:主循环 {int(stalled)}s 无进展,判定卡死 -> 接力+强制退出")
+            why = f"主循环 {int(stalled)}s 无进展"
+        elif unpushed > PUSH_STALE_SEC and not NOCOMMIT:
+            why = f"{int(unpushed)}s 没成功推送"
+        if why:
+            print(f"⚠️ 看门狗:{why},判定卡死 -> 接力+强制退出")
             try:
                 dispatch_next()
             except Exception as e:
@@ -406,17 +419,49 @@ def _git(args, timeout=60):
         return None
 
 
+def _ok(r):
+    return r is not None and r.returncode == 0
+
+
+def _repair_git_state():
+    """修复上次失败留下的坏状态:残留的 rebase、游离 HEAD。否则之后每次提交都会失败。"""
+    if os.path.isdir(".git/rebase-merge") or os.path.isdir(".git/rebase-apply"):
+        print("🔧 修复:中止残留的 rebase")
+        _git(["rebase", "--abort"], timeout=30)
+    if subprocess.run(["git", "symbolic-ref", "-q", "HEAD"], capture_output=True).returncode != 0:
+        print("🔧 修复:游离 HEAD -> 把当前提交挂回 main")
+        _git(["checkout", "-q", "-B", "main"], timeout=30)
+
+
 def commit_push():
+    global _LAST_PUSH_OK
     if NOCOMMIT:
         return
-    with _IO_LOCK:  # 防止 fanme 线程在 git rebase 重写工作区时写 CSV
+    with _IO_LOCK:  # 防止抓取线程在 git rebase 重写工作区时写文件
+        _repair_git_state()
         _git(["add", "data"], timeout=30)
         chk = _git(["diff", "--cached", "--quiet"], timeout=30)
         if chk is not None and chk.returncode != 0:
             _git(["commit", "-q", "-m",
                   "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], timeout=30)
-            _git(["pull", "--rebase", "--autostash", "-q"], timeout=60)
-            _git(["push", "-q"], timeout=60)
+        # 变基到远端。数据文件冲突(上一个任务被取消前又推了一次)时,以本任务的最新抓取为准:
+        # pull --rebase 里 "theirs" = 正在重放的本地提交。
+        if not _ok(_git(["pull", "--rebase", "--autostash", "-X", "theirs", "-q", "origin", "main"],
+                        timeout=90)):
+            print("⚠️ pull --rebase 失败,改为:中止 -> 对齐远端 -> 用本地最新数据覆盖提交")
+            _git(["rebase", "--abort"], timeout=30)
+            _repair_git_state()
+            if _ok(_git(["fetch", "-q", "origin", "main"], timeout=90)):
+                _git(["reset", "-q", "--soft", "origin/main"], timeout=30)
+                _git(["reset", "-q", "origin/main", "--", "."], timeout=30)   # 暂存区先对齐远端(不碰代码文件)
+                _git(["add", "data"], timeout=30)                             # 只用本地最新数据覆盖
+                _git(["commit", "-q", "-m",
+                      "track(resync) " + datetime.now(timezone.utc).isoformat(timespec="seconds")],
+                     timeout=30)
+        if _ok(_git(["push", "-q", "origin", "HEAD:main"], timeout=60)):
+            _LAST_PUSH_OK = time.time()
+        else:
+            print("⚠️ push 失败,下轮重试")
 
 
 _DISCOVERED = []
