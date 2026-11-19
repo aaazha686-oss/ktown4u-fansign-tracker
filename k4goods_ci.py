@@ -21,6 +21,11 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 
+try:
+    import pending as _pending   # 断链缓冲(记账);单独运行时没有也不影响
+except Exception:
+    _pending = None
+
 BJ = timezone(timedelta(hours=8))
 DATADIR = "data"
 HDRS = {
@@ -99,7 +104,10 @@ def poll_one(g):
         w = csv.writer(f)
         if new:
             w.writerow(["time", "member", "sales", "delta"])
-        w.writerow([ts, label, apps, "" if last is None else apps - last])
+        row = [ts, label, apps, "" if last is None else apps - last]
+        w.writerow(row)
+    if _pending:
+        _pending.add(path, row)   # 记账:推送成功前都算"未落地"
     return {"eventNo": eid, "title": g.get("name", name), "platform": "ktown4u",
             "status": "live", "tracked": True, "total": apps, "members": 1,
             "hasSummary": False, "kind": "showcase"}
