@@ -36,4 +36,5 @@ jobs:
           PAT: ${{ secrets.PAT }}
           REPO: ${{ github.repository }}
           MND_PROXY: ${{ secrets.MND_PROXY }}
+          GITHUB_TOKEN: ${{ github.token }}   # 断链存档用(工作流自带,有写文件权限)
         run: python ktown4u_ci.py
