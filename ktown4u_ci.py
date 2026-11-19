@@ -524,7 +524,9 @@ def commit_push():
             _LAST_PUSH_OK = time.time()
             pending.clear(snap)          # 推上去了才销账
         else:
-            print(f"⚠️ push 失败,下轮重试(账上 {pending.count()} 行未落地)")
+            # 推不上去就立刻存档,不等任务"临死"(临死时机不可靠,可能直接被 kill)
+            print(f"⚠️ push 失败,账上 {pending.count()} 行未落地 -> 先存档,下轮继续重试 push")
+            pending.flush_remote("push-failed")
 
 
 _DISCOVERED = []
