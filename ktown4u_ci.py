@@ -21,6 +21,7 @@
 }
 """
 import csv
+import io
 import json
 import os
 import re
@@ -32,6 +33,8 @@ import threading
 import time
 import urllib.request
 from datetime import datetime, timezone, timedelta
+
+import pending   # 断链缓冲:推不上去的行先存着,恢复后补上
 
 BJ = timezone(timedelta(hours=8))  # 北京时间
 
@@ -71,9 +74,22 @@ _LAST_PROGRESS = time.time()  # 主循环上次推进时间(看门狗用)
 WATCHDOG_SEC = 300            # 主循环超过这么久没进展 -> 判定卡死,强制接力+退出
 
 
+_FLUSH_T = None   # 收到取消信号后的存档线程
+
+
+def _flush_on_stop():
+    """被取消时 GitHub 只给 ~10 秒:立刻把没推上去的行存档到远端(不走 git,也就不会和新任务撞冲突)。"""
+    for _ in range(2):
+        if pending.flush_remote("cancelled"):
+            return
+
+
 def _sig(*_a):
-    global _STOP
+    global _STOP, _FLUSH_T
     _STOP = True
+    if _FLUSH_T is None:
+        _FLUSH_T = threading.Thread(target=_flush_on_stop, daemon=True)
+        _FLUSH_T.start()
 
 
 signal.signal(signal.SIGTERM, _sig)
@@ -204,7 +220,9 @@ def append_rows(path, ts, agg, prev):
             w.writerow(["time", "member", "sales", "delta"])
         for m, v in agg.items():
             last = prev.get(m)
-            w.writerow([ts, m, v, "" if last is None else v - last])
+            row = [ts, m, v, "" if last is None else v - last]
+            w.writerow(row)
+            pending.add(path, row)   # 记账:推送成功前都算"未落地"
             prev[m] = v
 
 
@@ -402,7 +420,11 @@ def _watchdog():
         elif unpushed > PUSH_STALE_SEC and not NOCOMMIT:
             why = f"{int(unpushed)}s 没成功推送"
         if why:
-            print(f"⚠️ 看门狗:{why},判定卡死 -> 接力+强制退出")
+            print(f"⚠️ 看门狗:{why},判定卡死 -> 存档未推送的行 -> 接力+强制退出")
+            try:
+                pending.flush_remote("watchdog")   # 先把抓到但没推上去的存起来,新任务会补上
+            except Exception as e:
+                print("看门狗存档失败:", e)
             try:
                 dispatch_next()
             except Exception as e:
@@ -433,35 +455,76 @@ def _repair_git_state():
         _git(["checkout", "-q", "-B", "main"], timeout=30)
 
 
+def _setup_union_merge():
+    """CSV 都是只追加的时间序列:两边同时追加时 union 合并 = 两边的行都保留(之后再排序去重)。
+    写在 .git/info/attributes(只影响本次 checkout,不用改仓库文件)。"""
+    try:
+        os.makedirs(".git/info", exist_ok=True)
+        p, line = ".git/info/attributes", "data/*.csv merge=union\n"
+        cur = open(p, encoding="utf-8").read() if os.path.exists(p) else ""
+        if line not in cur:
+            with open(p, "a", encoding="utf-8") as f:
+                f.write(line)
+    except Exception as e:
+        print("设置 union 合并失败:", e)
+
+
+def _commit_if_changed(msg):
+    chk = _git(["diff", "--cached", "--quiet"], timeout=30)
+    if chk is not None and chk.returncode != 0:
+        _git(["commit", "-q", "-m", msg + " " + datetime.now(timezone.utc).isoformat(timespec="seconds")],
+             timeout=30)
+        return True
+    return False
+
+
+def _merge_remote_csvs_into_worktree():
+    """兜底路径专用:对齐远端前,把远端 CSV 里本地没有的行并进本地文件,避免"用本地覆盖"时丢掉别人的行。"""
+    out = subprocess.run(["git", "diff", "--name-only", "origin/main", "--", "data"],
+                         capture_output=True, text=True).stdout.split()
+    for p in out:
+        if p.endswith(".csv") and os.path.exists(p) and "/pending/" not in p:
+            txt = subprocess.run(["git", "show", f"origin/main:{p}"], capture_output=True,
+                                 text=True, encoding="utf-8").stdout.lstrip("﻿")
+            pending.normalize(p, list(csv.reader(io.StringIO(txt)))[1:])
+
+
 def commit_push():
     global _LAST_PUSH_OK
     if NOCOMMIT:
         return
     with _IO_LOCK:  # 防止抓取线程在 git rebase 重写工作区时写文件
+        snap = pending.snapshot()        # 账上"还没推上去"的行
         _repair_git_state()
+        pending.reconcile(snap)          # 修复(rebase --abort)可能抹掉了没提交的行 -> 补回
         _git(["add", "data"], timeout=30)
-        chk = _git(["diff", "--cached", "--quiet"], timeout=30)
-        if chk is not None and chk.returncode != 0:
-            _git(["commit", "-q", "-m",
-                  "track " + datetime.now(timezone.utc).isoformat(timespec="seconds")], timeout=30)
-        # 变基到远端。数据文件冲突(上一个任务被取消前又推了一次)时,以本任务的最新抓取为准:
-        # pull --rebase 里 "theirs" = 正在重放的本地提交。
+        _commit_if_changed("track")
+        # 变基到远端:CSV 走 union(两边行都留),json 索引走 -X theirs(本任务最新生成的为准)。
         if not _ok(_git(["pull", "--rebase", "--autostash", "-X", "theirs", "-q", "origin", "main"],
                         timeout=90)):
-            print("⚠️ pull --rebase 失败,改为:中止 -> 对齐远端 -> 用本地最新数据覆盖提交")
+            print("⚠️ pull --rebase 失败,改为:中止 -> 合并远端行 -> 对齐远端 -> 提交本地数据")
             _git(["rebase", "--abort"], timeout=30)
             _repair_git_state()
+            pending.reconcile(snap)
             if _ok(_git(["fetch", "-q", "origin", "main"], timeout=90)):
+                _merge_remote_csvs_into_worktree()
                 _git(["reset", "-q", "--soft", "origin/main"], timeout=30)
                 _git(["reset", "-q", "origin/main", "--", "."], timeout=30)   # 暂存区先对齐远端(不碰代码文件)
-                _git(["add", "data"], timeout=30)                             # 只用本地最新数据覆盖
-                _git(["commit", "-q", "-m",
-                      "track(resync) " + datetime.now(timezone.utc).isoformat(timespec="seconds")],
-                     timeout=30)
+                _git(["add", "data"], timeout=30)                             # 只提交数据
+                _commit_if_changed("track(resync)")
+        # 补上:远端存档(上个任务断链时存的)+ 账上的行;再整理 union 合并后的顺序
+        nfiles, nrows = pending.merge_pending_files()
+        nrows += pending.reconcile(snap)
+        pending.tidy(snap.keys())
+        _git(["add", "data"], timeout=30)
+        if _commit_if_changed(f"backfill 补回{nrows}行(存档{nfiles}个)" if (nfiles or nrows) else "track(tidy)"):
+            if nfiles or nrows:
+                print(f"🩹 已补回断链期间的 {nrows} 行(来自 {nfiles} 个存档)")
         if _ok(_git(["push", "-q", "origin", "HEAD:main"], timeout=60)):
             _LAST_PUSH_OK = time.time()
+            pending.clear(snap)          # 推上去了才销账
         else:
-            print("⚠️ push 失败,下轮重试")
+            print(f"⚠️ push 失败,下轮重试(账上 {pending.count()} 行未落地)")
 
 
 _DISCOVERED = []
@@ -529,9 +592,9 @@ def _goods_thread():
 def main():
     global _LAST_PROGRESS
     _LAST_PROGRESS = time.time()
-    # 看门狗最先起:覆盖启动发现阶段。之前它在 refresh_discovery 之后才起,
-    # 若卡在启动(网络/发现)就永远救不了 —— 这正是多次~50分钟空档的根因。
+    # 看门狗最先起,覆盖启动发现阶段。(反复断更的真因是 git 数据冲突卡住推送,见 commit_push / _watchdog)
     threading.Thread(target=_watchdog, daemon=True).start()
+    _setup_union_merge()
     tracked = refresh_discovery_and_index()
     _LAST_PROGRESS = time.time()   # 启动发现可能慢,完成后立即打点
     print("本段追踪:", tracked)
@@ -573,10 +636,18 @@ def main():
             last_discover = time.time()
         if not _STOP:
             time.sleep(INTERVAL)
+    if _STOP:
+        # 被取消:不再抢着 git 推送(那正是新旧任务撞冲突的来源),
+        # 未推上去的行已由 _flush_on_stop 存档到 data/pending/,新任务会补上。
+        if _FLUSH_T is not None:
+            _FLUSH_T.join(timeout=8)
+        print(f"本段被取消:{polls} 轮,未落地 {pending.count()} 行(已尝试存档)")
+        return
     commit_push()
-    if not _STOP:           # 正常到点结束 -> 自我接力;被取消(_STOP)则由取消方接力,不重复
-        dispatch_next()
-    print(f"本段结束:{polls} 轮 (stop={_STOP})")
+    if pending.count():     # 到点了还有没推上去的 -> 存档,别跟着这台机器一起丢
+        pending.flush_remote("end-unpushed")
+    dispatch_next()         # 正常到点结束 -> 自我接力
+    print(f"本段结束:{polls} 轮")
 
 
 if __name__ == "__main__":
