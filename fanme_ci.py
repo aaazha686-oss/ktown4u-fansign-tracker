@@ -20,6 +20,11 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 
+try:
+    import pending as _pending   # 断链缓冲(记账);单独运行时没有也不影响
+except Exception:
+    _pending = None
+
 BJ = timezone(timedelta(hours=8))
 DATADIR = "data"
 STATE = os.path.join(DATADIR, "fanme_state.json")
@@ -119,6 +124,8 @@ def poll_event(ev, state):
                 w.writerow(["time", "member", "sales", "delta"])
             for r in rows:
                 w.writerow([r["time"], r["member"], r["sales"], r["delta"]])
+                if _pending:
+                    _pending.add(path, [r["time"], r["member"], r["sales"], r["delta"]])
     return {"eventNo": eid, "title": ev.get("name", eid), "platform": "fanme",
             "status": "live", "tracked": True, "total": total, "members": members,
             "hasSummary": False}
