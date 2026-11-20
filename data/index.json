@@ -1,24 +1,11 @@
 {
- "updatedAt": "2026-11-20T09:51:48+00:00",
+ "updatedAt": "2026-11-20T09:53:59+00:00",
  "platforms": [
   {
    "id": "ktown4u",
    "name": "Ktown4u",
    "supported": true,
    "events": [
-    {
-     "eventNo": "44553792",
-     "title": "SM FanSignal Lip Balm x Ktown4u",
-     "description": "",
-     "start": "2026-11-09 00:00:00.0",
-     "end": "2099-12-31 23:59:00.0",
-     "autofound": true,
-     "status": "live",
-     "tracked": true,
-     "hasSummary": false,
-     "total": 228533,
-     "members": 56
-    },
     {
      "eventNo": "44469917",
      "title": "IVE",
