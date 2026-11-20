@@ -16,6 +16,9 @@
         "name": "[FAN SHOWCASE] EXO-KASE Waking Up The City (Poster Ver.)",
         "label": "EXO-KASE"
       }
+    ],
+    "excludeEvents": [
+      "44553792"
     ]
   },
   "analysis": {
