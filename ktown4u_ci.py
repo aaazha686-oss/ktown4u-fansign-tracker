@@ -58,6 +58,7 @@ DATADIR = "data"
 GQL = "https://apis.ktown4u.com/vador/graphql"
 KCFG = CFG.get("ktown4u", {})
 SHOP = int(KCFG.get("shopNo", 164))
+EXCLUDED = {str(e) for e in KCFG.get("excludeEvents", [])}   # 手动排除:不追踪、不显示(数据文件保留)
 ACFG = CFG.get("analysis", {})
 
 os.makedirs(DATADIR, exist_ok=True)
@@ -96,7 +97,7 @@ signal.signal(signal.SIGTERM, _sig)
 signal.signal(signal.SIGINT, _sig)
 
 FANSIGN_KW = ("sign event", "fansign", "fan sign", "video call", "사인", "팬사인", "영상통화", "영통")
-EXCLUDE_KW = ("cafe", "카페")
+EXCLUDE_KW = ("cafe", "카페", "fansignal")   # fansignal: "SM FanSignal Lip Balm" 这类商品名里含 fansign,不是签售
 
 
 # ---------- 通用 HTTP ----------
@@ -298,6 +299,8 @@ def build_index(discovered, tracked):
     # 保留:自动发现过的(autofound,签售结束也永久留着)/ 在追踪的 / 有总结的。
     # 只清掉:手动加过又删掉的非签售(没 autofound 标记)。
     def _keep(eno, ev):
+        if eno in EXCLUDED:
+            return False
         return (ev.get("autofound") or eno in tracked or ev.get("hasSummary")
                 or os.path.exists(os.path.join(DATADIR, f"summary_{eno}.json")))
     by_no = {eno: ev for eno, ev in old_events.items() if _keep(eno, ev)}
@@ -536,7 +539,7 @@ _TRACKED = set()
 def refresh_discovery_and_index():
     """发现在售签售、决定追踪谁、刷新 index、给新结束的活动出总结。"""
     global _DISCOVERED, _TRACKED
-    discovered = discover()
+    discovered = [d for d in discover() if d["eventNo"] not in EXCLUDED]
     if discovered:
         _DISCOVERED = discovered
     auto = KCFG.get("autoTrackOpenFansign", True)
@@ -544,6 +547,7 @@ def refresh_discovery_and_index():
     tracked = set(extra)
     if auto:
         tracked |= {d["eventNo"] for d in (_DISCOVERED) if d["live"]}
+    tracked -= EXCLUDED
     _TRACKED = tracked
     idx = build_index(_DISCOVERED, tracked)
     # 给已结束、还没总结的活动生成总结
