@@ -14,7 +14,9 @@
         "goodsNo": 172409,
         "shopNo": 174,
         "name": "[FAN SHOWCASE] EXO-KASE Waking Up The City (Poster Ver.)",
-        "label": "EXO-KASE"
+        "label": "EXO-KASE",
+        "ended": true,
+        "end": "2026-11-22 23:00"
       }
     ],
     "excludeEvents": [
