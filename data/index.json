@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-27T03:01:06+00:00",
+ "updatedAt": "2026-11-27T03:02:20+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -707,6 +707,17 @@
      "hasSummary": true,
      "total": 7842,
      "members": 7
+    },
+    {
+     "eventNo": "44635898",
+     "title": "WENDY",
+     "description": "On / Off-line Sign Event",
+     "start": "2026-11-27 12:00:00.0",
+     "end": "2026-11-30 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
     }
    ]
   },
