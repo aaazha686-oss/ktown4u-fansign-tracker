@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-27T06:00:59+00:00",
+ "updatedAt": "2026-11-27T06:02:18+00:00",
  "platforms": [
   {
    "id": "ktown4u",
@@ -714,6 +714,17 @@
      "description": "On / Off-line Sign Event",
      "start": "2026-11-27 12:00:00.0",
      "end": "2026-11-30 00:00:00.0",
+     "autofound": true,
+     "status": "upcoming",
+     "tracked": false,
+     "hasSummary": false
+    },
+    {
+     "eventNo": "44636538",
+     "title": "P1Harmony",
+     "description": "On / Off-line Video Call",
+     "start": "2026-11-27 15:00:00.0",
+     "end": "2026-12-01 00:00:00.0",
      "autofound": true,
      "status": "upcoming",
      "tracked": false,
